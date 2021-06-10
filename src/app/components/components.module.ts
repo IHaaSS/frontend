@@ -6,6 +6,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -14,6 +16,7 @@ import { WizardComponent } from './wizard/wizard.component';
 import { TreeSelectorComponent } from './wizard/tree-selector/tree-selector.component';
 import { EventConstraintPipe } from './wizard/tree-selector/event-constraint.pipe';
 import { FormsModule } from '@angular/forms';
+import { SidepanelComponent } from './wizard/sidepanel/sidepanel.component';
 
 @NgModule({
   imports: [
@@ -24,7 +27,9 @@ import { FormsModule } from '@angular/forms';
     MatSelectModule,
     FormsModule,
     MatInputModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatListModule,
+    MatIconModule
   ],
   declarations: [
     FooterComponent,
@@ -32,7 +37,8 @@ import { FormsModule } from '@angular/forms';
     SidebarComponent,
     WizardComponent,
     TreeSelectorComponent,
-    EventConstraintPipe
+    EventConstraintPipe,
+    SidepanelComponent
   ],
   exports: [
     FooterComponent,

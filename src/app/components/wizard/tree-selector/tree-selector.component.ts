@@ -75,7 +75,7 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
       this.selections.elements.forEach((selection, i) => {
         if (!eventConstraintPipe.isEventAllowed(
             selection,
-            this.incident.getElementById(changes.triggeredBy.currentValue))) {
+            this.incident.getElementById(changes.triggeredBy.currentValue).elements)) {
           this.selectionChange(undefined, i);
         }
       });

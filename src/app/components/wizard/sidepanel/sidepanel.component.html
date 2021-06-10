@@ -1,0 +1,30 @@
+<mat-list>
+    <div mat-subheader>Sources</div>
+    <ng-container *ngFor="let source of incident.sources">
+        <mat-list-item *ngIf="source.elements.length > 0">
+            <mat-icon mat-list-icon>play_arrow</mat-icon>
+            <div mat-line>{{source.name}}</div>
+        </mat-list-item>
+    </ng-container>
+    <mat-divider></mat-divider>
+    <div mat-subheader>Events</div>
+    <ng-container *ngFor="let event of incident.events">
+        <mat-list-item *ngIf="event.elements.length > 0">
+            <mat-icon mat-list-icon>error_outline</mat-icon>
+            <div mat-line>{{event.name}}</div>
+            <div mat-line *ngIf="event.triggeredBy!==undefined">triggered by: {{incident.getElementById(event.triggeredBy).name}} </div>
+        </mat-list-item>
+    </ng-container>
+    <mat-divider></mat-divider><div mat-subheader>Affected entities</div>
+    <ng-container *ngFor="let entity of incident.entities">
+        <mat-list-item *ngIf="entity.elements.length > 0">
+            <mat-icon mat-list-icon>extension</mat-icon>
+            <div mat-line>{{entity.name}}</div>
+        </mat-list-item>
+    </ng-container>
+    <mat-divider></mat-divider>
+    <mat-list-item *ngIf="incident.impacts[0].elements.length > 0">
+        <mat-icon mat-list-icon>trending_up</mat-icon>
+        <div mat-line>{{incident.impacts[0].elements[0]}}</div>
+    </mat-list-item>
+</mat-list>

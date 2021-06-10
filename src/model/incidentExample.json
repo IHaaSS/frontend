@@ -1,93 +1,82 @@
 {
-  "idCount": 10,
   "sources": [
     {
-      "source": [
+      "elements": [
         "Structure",
         "Environmental Controls"
       ],
-      "description": "fdgsdfgsdg",
+      "description": "",
+      "elementId": "2-2",
       "id": 0
     },
     {
-      "source": [],
-      "description": "",
-      "id": 3
-    },
-    {
-      "source": [
-        "Structure",
-        "IT Equipment",
-        "Storage"
-      ],
-      "description": "sfgsfdgsdfgsdfgsdfgsdfg",
-      "id": 4
-    },
-    {
-      "source": [
+      "elements": [
         "Actor",
-        "Group",
-        "Established"
+        "Group"
       ],
-      "description": "",
-      "id": 5
+      "description": "Bei den Angreifern handelt es sich um eine bekannte Hackergruppe",
+      "elementId": "1-2",
+      "id": 8
     }
   ],
   "events": [
     {
-      "event": [
-        "Technical",
-        "Failures/Malfunctions",
-        "Failures or disruptions of main supply",
-        "Power"
+      "elements": [
+        "Technical"
       ],
-      "description": "gsdfgsdfgsdfgsfdgsdfg\nsdfgsdfg",
+      "description": "",
+      "elementId": "2",
       "id": 1,
       "triggeredBy": 4
     },
     {
-      "event": [],
-      "description": "",
-      "id": 6
-    },
-    {
-      "event": [
-        "Technical",
-        "Failures/Malfunctions",
-        "Failure of devices or systems"
-      ],
-      "description": "fsgddfgsdfg",
-      "id": 7,
-      "triggeredBy": 8
-    },
-    {
-      "event": [
+      "elements": [
         "Technical",
         "Failures/Malfunctions"
       ],
-      "description": "sdfgsdfgsdfgsdfgsdfg",
-      "id": 8,
+      "description": "",
+      "elementId": "2-2",
+      "id": 4,
       "triggeredBy": 0
+    },
+    {
+      "elements": [
+        "Attack",
+        "Physical attacks",
+        "Unauthorised entry to premises"
+      ],
+      "description": "",
+      "elementId": "1-2-3",
+      "id": 5
     }
   ],
   "entities": [
     {
-      "entity": [
-        "Nations"
+      "elements": [
+        "Individuals"
       ],
-      "description": "dfgssdfgsdfg",
+      "description": "Menschen wurden verletzt",
+      "elementId": "3",
       "id": 2
     },
     {
-      "entity": [
-        "Individuals"
+      "elements": [
+        "Operations"
       ],
-      "description": "xvxvxcvsdffsdxcvxcv",
-      "id": 9
+      "description": "Prozesse wurden gestört",
+      "elementId": "1",
+      "id": 6
     }
   ],
-  "impact": "moderate",
-  "email": "sadf@sfdf.de",
-  "time": "2019-03-11T23:00:00.000Z",
-  "description": "sdafasdfasfd"
+  "impacts": [
+    {
+      "elements": [
+        "Moderate"
+      ],
+      "description": "",
+      "elementId": "3",
+      "id": 3
+    }
+  ],
+  "idCount": 9
 }

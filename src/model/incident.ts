@@ -13,10 +13,10 @@ export class Incident{
   idCount: number = 0;
 
   constructor(){
-    this.addSource({elements: [], description: "", elementId: ""});
-    this.addEvent({elements: [], description: "", elementId: ""});
-    this.addEntity({elements: [], description: "", elementId: ""});
-    this.addImpact({elements: [], description: "", elementId: ""});
+    this.addSource(new IncidentElement());
+    this.addEvent(new IncidentElement());
+    this.addEntity(new IncidentElement());
+    this.addImpact(new IncidentElement());
   }
 
   addSource(element: IncidentElement): void{
@@ -68,18 +68,18 @@ export class Incident{
     return false;
   }
 
-  getElementById(id: number): string[]{
+  getElementById(id: number): IncidentElement{
     for(let source of this.sources)
       if(source.id === id)
-        return source.elements;
+        return source;
 
     for(let event of this.events)
       if(event.id === id)
-        return event.elements;
+        return event;
 
     for(let entity of this.entities)
       if(entity.id === id)
-        return entity.elements;
+        return entity;
 
     return undefined;
   }
@@ -96,6 +96,16 @@ export class IncidentElement{
     description: string;
     id?: number;
     elementId: string;
+
+    constructor(){
+      this.elements = [];
+      this.description = "";
+      this.elementId = "";
+    }
+
+    get name(): string{
+      return this.elements[this.elements.length - 1];
+    }
 }
 
 export class IncidentEvent extends IncidentElement{

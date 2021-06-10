@@ -1,10 +1,11 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IncidentService } from 'app/services/incident.service';
-import { Incident } from 'model/incident';
+import { Incident, IncidentElement } from 'model/incident';
 import sources from 'model/sources.json';
 import events from 'model/events.json';
 import entities from 'model/entities.json';
 import impacts from 'model/impacts.json';
+import exampleIncident from 'model/incidentExample.json'
 import { IncidentTree } from './tree-selector/tree-selector.component';
 
 @Component({
@@ -12,8 +13,7 @@ import { IncidentTree } from './tree-selector/tree-selector.component';
   templateUrl: './wizard.component.html',
   styleUrls: ['./wizard.component.css']
 })
-export class WizardComponent implements OnInit {
-  
+export class WizardComponent implements OnInit {  
   @ViewChild('wizard') wizard: any;
   @ViewChild('sourcesAccordion') sourcesAccordion: any;
 
@@ -53,7 +53,7 @@ export class WizardComponent implements OnInit {
       this.incident.sources,
       this.sourcesPanelOpened,
       {source: [], description: ""});
-      this.incident.addSource({elements: [], description: "", elementId: ""});
+      this.incident.addSource(new IncidentElement());
   }
 
   addEvent(): void{
@@ -61,7 +61,7 @@ export class WizardComponent implements OnInit {
       this.incident.events,
       this.eventsPanelOpened,
       {event: [], description: ""});
-      this.incident.addEvent({elements: [], description: "", elementId: ""});
+      this.incident.addEvent(new IncidentElement());
   }
 
   addEntity(): void{
@@ -69,7 +69,7 @@ export class WizardComponent implements OnInit {
       this.incident.entities,
       this.entitiesPanelOpened,
       {entity: [], description: ""});
-      this.incident.addEntity({elements: [], description: "", elementId: ""});
+      this.incident.addEntity(new IncidentElement());
   }
 
   addElement(elementArray: {description: string}[], openedArray: boolean[], element: any): void{

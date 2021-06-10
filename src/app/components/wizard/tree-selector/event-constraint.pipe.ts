@@ -12,8 +12,10 @@ export class EventConstraintPipe implements PipeTransform {
   };
 
   transform(selectibleEvents: string[], triggeredBy: number, incident: Incident): string[] {
-    let triggeredByEvent: string[] = incident.getElementById(triggeredBy);
-    if(triggeredBy === undefined || triggeredByEvent === undefined)
+    if(triggeredBy === undefined)
+      return selectibleEvents;
+    let triggeredByEvent: string[] = incident.getElementById(triggeredBy).elements;
+    if(triggeredByEvent === undefined)
       return selectibleEvents;
     let newSelectibleEvents: string[] = [];
     for(let event of selectibleEvents){
