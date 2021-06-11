@@ -35,10 +35,9 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
   }
 
   selectionChange(value: any, i: number) {
-    for (let j = this.selections.elements.length - 2; j > i; j--) {
+    for (let j = this.selections.elements.length - 1; j > i; j--) {
       this.choices.pop();
       this.selections.elements.pop();
-    
     }
 
     if (value === undefined) {
