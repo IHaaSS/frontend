@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { plainToClass } from 'class-transformer';
 import { Incident } from 'model/incident';
 import exampleIncident from 'model/incidentExample.json'
 
@@ -6,9 +7,12 @@ import exampleIncident from 'model/incidentExample.json'
   providedIn: 'root'
 })
 export class IncidentService {
-  public incident: Incident = new Incident();
+  public incident: Incident;
 
-  constructor() { }
+  constructor() {
+    this.incident = new Incident();
+    // console.log(plainToClass(Incident, exampleIncident)); //war ein Test. funktioniert allerdings nicht richtig
+   }
 
   getIncidents(): Incident{
     return this.incident;

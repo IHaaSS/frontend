@@ -1,13 +1,13 @@
-<div class="main-content">
-    <div class="container-fluid">
-        <div class="row">
+<div class="main-content" style="min-height: calc(100vh - 123px - 35px);">
+    <div class="container-fluid" style="min-height: calc(100vh - 123px - 70x);">
+        <div class="row" style="min-height: calc(100vh - 123px - 120px);">
             <div class="col-md-8">
-                <div class="card">
+                <div class="card" style="min-height: calc(100vh - 123px - 125px); max-height: calc(100vh - 123px - 125px)">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">HaaSS Wizard</h4>
                         <p class="card-category"> Report incidents in 4 simple steps</p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body" style="max-height:100%; overflow-y: auto">
                         <mat-vertical-stepper [linear]="false" #stepper>
                             <mat-step>
                                 <ng-template matStepLabel>Sources</ng-template>
@@ -193,12 +193,12 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card">
+                <div class="card" style="min-height: calc(100vh - 123px - 125px); max-height: calc(100vh - 123px - 125px)">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Selected Elements</h4>
                         <p class="card-category">Overview of selected Incident elements</p>
                     </div>
-                    <div class="card-body">
+                    <div class="card-body"  style="max-height:100%; overflow-y: auto">
                         <app-sidepanel></app-sidepanel>
                     </div>
                 </div>
