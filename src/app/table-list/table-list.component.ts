@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { IncidentService } from 'app/services/incident.service';
+import { Incident } from 'model/incident';
 
 @Component({
   selector: 'app-table-list',
@@ -6,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./table-list.component.css']
 })
 export class TableListComponent implements OnInit {
+  incident: Incident;
 
   public incidents = [
     {id: "1", name: "Angriff", source: "Malory", event: "ganz böses Ereignis", entities: "ganze blockchain", impact: "alles kaputt"},
@@ -31,7 +34,9 @@ export class TableListComponent implements OnInit {
     {id: "21", name: "Angriff", source: "Malory", event: "ganz böses Ereignis", entities: "ganze blockchain", impact: "alles kaputt"},
   ]
 
-  constructor() { }
+  constructor(incidentService: IncidentService) { 
+    this.incident = incidentService.getIncidents();
+  }
 
   ngOnInit() {
   }

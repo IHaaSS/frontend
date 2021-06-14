@@ -17,6 +17,7 @@ import { TreeSelectorComponent } from './wizard/tree-selector/tree-selector.comp
 import { EventConstraintPipe } from './wizard/tree-selector/event-constraint.pipe';
 import { FormsModule } from '@angular/forms';
 import { SidepanelComponent } from './wizard/sidepanel/sidepanel.component';
+import { IncidentCardComponent } from './incident-card/incident-card.component';
 
 @NgModule({
   imports: [

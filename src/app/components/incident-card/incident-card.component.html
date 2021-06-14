@@ -1,0 +1,45 @@
+<mat-card class="incident-card">
+    <mat-card-header>
+        <div mat-card-avatar class="vote">
+            <div class="vote-arrow" (click)="vote(1)">
+                <mat-icon>arrow_upward</mat-icon>
+            </div>
+            <div><b>{{votes}}</b></div>
+            <div class="vote-arrow" (click)="vote(-1)">
+                <mat-icon>arrow_downward</mat-icon>
+            </div>
+        </div>
+        <mat-card-title class="incident-card-title">Incident</mat-card-title>
+        <mat-card-subtitle>Blockchain kaputt</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+        <p>
+            Blockchain incident
+        </p>
+
+    </mat-card-content>
+    <mat-card-actions class="incident-card-actions">
+        <button mat-button (click)="toggleComments()">
+            <mat-icon>insert_comment</mat-icon> {{numberComments}} Comments
+        </button>
+        <button mat-button>SHARE</button>
+    </mat-card-actions>
+    <mat-expansion-panel hideToggle #commentsPanel>
+        <mat-list>
+            <p>
+                User 1 - 14.06.2021 <br>
+                blablabla
+            </p>
+            <mat-divider></mat-divider>
+            <p>
+                User 1 - 14.06.2021<br>
+                blablabla
+            </p>
+            <mat-divider></mat-divider>
+            <p>
+                User 1 - 14.06.2021<br>
+                blablabla
+            </p>
+        </mat-list>
+    </mat-expansion-panel>
+</mat-card>

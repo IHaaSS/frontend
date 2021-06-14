@@ -1,0 +1,25 @@
+.incident-card {
+    max-width: 900px;
+    margin-bottom: 10px;
+}
+
+.incident-card-title {
+    color: black;
+}
+
+.vote {
+    text-align: center;
+    line-height: 1;
+}
+
+.vote-arrow{
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.incident-card-actions {
+    margin-bottom: 0;
+}

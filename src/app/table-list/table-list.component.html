@@ -4,10 +4,15 @@
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title ">Simple Table</h4>
-                        <p class="card-category"> Here is a subtitle for this table</p>
+                        <h4 class="card-title">Incidents</h4>
+                        <p class="card-category"> List of reported Incidents</p>
                     </div>
                     <div class="card-body">
+                        <app-incident-card [incident]="incident"></app-incident-card>
+                        
+                        <app-incident-card [incident]="incident"></app-incident-card>
+                        
+                        <app-incident-card [incident]="incident"></app-incident-card>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
