@@ -17,6 +17,7 @@ export class IncidentCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.incident);
   }
 
   public vote(vote: number): void{
