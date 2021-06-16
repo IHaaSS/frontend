@@ -18,6 +18,7 @@ import { EventConstraintPipe } from './wizard/tree-selector/event-constraint.pip
 import { FormsModule } from '@angular/forms';
 import { SidepanelComponent } from './wizard/sidepanel/sidepanel.component';
 import { IncidentCardComponent } from './incident-card/incident-card.component';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   imports: [
@@ -30,7 +31,8 @@ import { IncidentCardComponent } from './incident-card/incident-card.component';
     MatInputModule,
     MatTooltipModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   declarations: [
     FooterComponent,
