@@ -9,9 +9,9 @@ import { Incident } from 'model/incident';
 })
 export class IncidentCardComponent implements OnInit {
   @Input() incident: Incident;
-  @ViewChild('commentsPanel') commentsPanel: MatExpansionPanel
+  @ViewChild('commentsPanel') commentsPanel: MatExpansionPanel;
 
-  votes: number = 0;
+  votes = 0;
   numberComments = 0;
 
   constructor() { }
@@ -20,12 +20,12 @@ export class IncidentCardComponent implements OnInit {
     console.log(this.incident);
   }
 
-  public vote(vote: number): void{
+  public vote(vote: number): void {
     this.votes += vote;
   }
 
-  public toggleComments(){
-    if(this.commentsPanel.expanded){
+  public toggleComments() {
+    if (this.commentsPanel.expanded) {
       this.commentsPanel.close();
     } else {
       this.commentsPanel.open();

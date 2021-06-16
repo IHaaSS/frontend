@@ -10,15 +10,15 @@ import { Incident } from 'model/incident';
 export class SidepanelComponent implements OnInit {
   incident: Incident;
 
-  constructor(incidentService: IncidentService) { 
+  constructor(incidentService: IncidentService) {
     this.incident = incidentService.getIncidents();
   }
 
   ngOnInit(): void {
-    setInterval(()=>{
+    setInterval(() => {
       console.log(this.incident);
 
-    }, 10000)
+    }, 10000);
   }
 
 }

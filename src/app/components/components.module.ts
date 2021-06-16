@@ -12,12 +12,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { FooterComponent } from './footer/footer.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
-import { WizardComponent } from './wizard/wizard.component';
-import { TreeSelectorComponent } from './wizard/tree-selector/tree-selector.component';
-import { EventConstraintPipe } from './wizard/tree-selector/event-constraint.pipe';
 import { FormsModule } from '@angular/forms';
-import { SidepanelComponent } from './wizard/sidepanel/sidepanel.component';
-import { IncidentCardComponent } from './incident-card/incident-card.component';
 import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
@@ -37,11 +32,7 @@ import { MatButtonModule } from '@angular/material/button';
   declarations: [
     FooterComponent,
     NavbarComponent,
-    SidebarComponent,
-    WizardComponent,
-    TreeSelectorComponent,
-    EventConstraintPipe,
-    SidepanelComponent
+    SidebarComponent
   ],
   exports: [
     FooterComponent,

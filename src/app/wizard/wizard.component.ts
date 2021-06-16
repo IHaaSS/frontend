@@ -5,7 +5,6 @@ import sources from 'model/sources.json';
 import events from 'model/events.json';
 import entities from 'model/entities.json';
 import impacts from 'model/impacts.json';
-import exampleIncident from 'model/incidentExample.json'
 import { IncidentTree } from './tree-selector/tree-selector.component';
 
 @Component({
@@ -13,7 +12,7 @@ import { IncidentTree } from './tree-selector/tree-selector.component';
   templateUrl: './wizard.component.html',
   styleUrls: ['./wizard.component.css']
 })
-export class WizardComponent implements OnInit {  
+export class WizardComponent implements OnInit {
   @ViewChild('wizard') wizard: any;
   @ViewChild('sourcesAccordion') sourcesAccordion: any;
 
@@ -21,71 +20,73 @@ export class WizardComponent implements OnInit {
   sourcesPanelOpened: boolean[] = [true];
   eventsPanelOpened: boolean[] = [true];
   entitiesPanelOpened: boolean[] = [true];
-  impactsPanelOpened: boolean[] = [true]
-  serverAnswer 
+  impactsPanelOpened: boolean[] = [true];
+  serverAnswer;
 
-  done:boolean
-  sourcesTree: IncidentTree
-  impactTree: IncidentTree
-  entitiesTree: IncidentTree
-  eventsTree: IncidentTree
-  loading: boolean = true;
-  concluded: boolean = false;
-  stixIncidentUrl = "";
-  buttonNext: string = "Next";
+  done: boolean;
+  sourcesTree: IncidentTree;
+  impactTree: IncidentTree;
+  entitiesTree: IncidentTree;
+  eventsTree: IncidentTree;
+  loading = true;
+  concluded = false;
+  stixIncidentUrl = '';
+  buttonNext = 'Next';
 
   selected = [];
 
-  constructor(private incidentService: IncidentService){
+  constructor(private incidentService: IncidentService) {
     this.sourcesTree = sources;
     this.eventsTree = events;
     this.entitiesTree = entities;
     this.impactTree = impacts;
   }
 
-  async ngOnInit():Promise<void> {
+  async ngOnInit(): Promise<void> {
     this.incident = this.incidentService.getIncidents();
   }
 
 
-  addSource(): void{
+  addSource(): void {
     this.addElement(
       this.incident.sources,
       this.sourcesPanelOpened,
-      {source: [], description: ""});
-      this.incident.addSource(new IncidentElement());
+      { source: [], description: '' });
+    this.incident.addSource(new IncidentElement());
   }
 
-  addEvent(): void{
+  addEvent(): void {
     this.addElement(
       this.incident.events,
       this.eventsPanelOpened,
-      {event: [], description: ""});
-      this.incident.addEvent(new IncidentElement());
+      { event: [], description: '' });
+    this.incident.addEvent(new IncidentElement());
   }
 
-  addEntity(): void{
+  addEntity(): void {
     this.addElement(
       this.incident.entities,
       this.entitiesPanelOpened,
-      {entity: [], description: ""});
-      this.incident.addEntity(new IncidentElement());
+      { entity: [], description: '' });
+    this.incident.addEntity(new IncidentElement());
   }
 
-  addElement(elementArray: {description: string}[], openedArray: boolean[], element: any): void{
-    if(elementArray.length < openedArray.length)
-      openedArray.splice(elementArray.length, openedArray.length)
-
-    openedArray.forEach((_e, i) => {openedArray[i]=false})
+  addElement(elementArray: { description: string }[], openedArray: boolean[], element: any): void {
+    if (elementArray.length < openedArray.length) {
+      openedArray.splice(elementArray.length, openedArray.length);
+    }
+    openedArray.forEach((_e, i) => {
+      openedArray[i] = false;
+    });
     openedArray.push(true);
   }
 
-  onConclude(){
+  onConclude() {
     console.log(this.incident);
   }
 
 
-  dateChange(event: any){
+  dateChange(event: any) {
     this.incident.time = event.value.format('YYYY-MM-DD');
   }
 }

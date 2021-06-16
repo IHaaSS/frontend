@@ -1,4 +1,4 @@
-export class Incident{
+export class Incident {
   sources: IncidentElement[] = [];
   events: IncidentEvent[] = [];
   entities: IncidentElement[] = [];
@@ -10,104 +10,115 @@ export class Incident{
   technicalData: string;
   title: string;
 
-  idCount: number = 0;
+  idCount = 0;
 
-  constructor(){
+  constructor() {
     this.addSource(new IncidentElement());
     this.addEvent(new IncidentElement());
     this.addEntity(new IncidentElement());
     this.addImpact(new IncidentElement());
   }
 
-  addSource(element: IncidentElement): void{
+  addSource(element: IncidentElement): void {
     element.id = this.idCount++;
     this.sources.push(element);
   }
-  addEvent(element: IncidentElement): void{
+  addEvent(element: IncidentElement): void {
     element.id = this.idCount++;
     this.events.push(element);
   }
-  addEntity(element: IncidentElement): void{
+  addEntity(element: IncidentElement): void {
     element.id = this.idCount++;
     this.entities.push(element);
   }
-  addImpact(element: IncidentElement): void{
+  addImpact(element: IncidentElement): void {
     element.id = this.idCount++;
     this.impacts.push(element);
   }
 
-  isOneEventSet(): boolean{
-    for(let event of this.events){
-      if(event.elements.length > 0)
+  isOneEventSet(): boolean {
+    for (const event of this.events) {
+      if (event.elements.length > 0) {
         return true;
+      }
     }
     return false;
   }
 
-  isOneSourceSet(): boolean{
-    for(let source of this.sources){
-      if(source.elements.length > 0)
+  isOneSourceSet(): boolean {
+    for (const source of this.sources) {
+      if (source.elements.length > 0) {
         return true;
+      }
     }
     return false;
   }
 
-  isOneEntitySet(): boolean{
-    for(let entity of this.entities){
-      if(entity.elements.length > 0)
+  isOneEntitySet(): boolean {
+    for (const entity of this.entities) {
+      if (entity.elements.length > 0) {
         return true;
+      }
     }
     return false;
   }
 
-  isOneImpactSet(): boolean{
-    for(let impact of this.impacts){
-      if(impact.elements.length > 0)
+  isOneImpactSet(): boolean {
+    for (const impact of this.impacts) {
+      if (impact.elements.length > 0) {
         return true;
+      }
     }
     return false;
   }
 
-  getElementById(id: number): IncidentElement{
-    for(let source of this.sources)
-      if(source.id === id)
+  getElementById(id: number): IncidentElement {
+    for (const source of this.sources) {
+      if (source.id === id) {
         return source;
+    }
+      }
 
-    for(let event of this.events)
-      if(event.id === id)
+    for (const event of this.events) {
+      if (event.id === id) {
         return event;
+    }
+      }
 
-    for(let entity of this.entities)
-      if(entity.id === id)
+    for (const entity of this.entities) {
+      if (entity.id === id) {
         return entity;
+    }
+      }
 
     return undefined;
   }
 
-  checkTitle(): boolean{
-    if(this.title && this.title.trim())
+  checkTitle(): boolean {
+    if (this.title && this.title.trim()) {
       return true;
+    }
     return false;
   }
 }
 
-export class IncidentElement{
+export class IncidentElement {
     elements: string[];
     description: string;
     id?: number;
     elementId: string;
 
-    constructor(){
+    constructor() {
       this.elements = [];
-      this.description = "";
-      this.elementId = "";
+      this.description = '';
+      this.elementId = '';
     }
 
-    get name(): string{
+    get name(): string {
       return this.elements[this.elements.length - 1];
     }
 }
 
-export class IncidentEvent extends IncidentElement{
+export class IncidentEvent extends IncidentElement {
   triggeredBy?: number;
 }

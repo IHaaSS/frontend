@@ -22,7 +22,6 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
   incident: Incident;
   choices: any = [];
   selections: IncidentElement = new IncidentElement();
-  test = "test"
 
   constructor(private incidentService: IncidentService) {
     this.selections.elements = [];
@@ -31,7 +30,7 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
   ngOnInit() {
     this.incident = this.incidentService.getIncidents();
     this.choices[0] = this.incidentTree.elements;
-    
+
   }
 
   selectionChange(value: any, i: number) {
@@ -43,14 +42,14 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
     if (value === undefined) {
       this.selections.elements.pop();
       this.choices.pop();
-      if (this.choices.length == 0)
+      if (this.choices.length === 0) {
         this.choices[0] = this.incidentTree[Object.keys(this.incidentTree)[0]];
-    }
-    else {
+      }
+    } else {
       this.selections.elements[i] = value.name;
       this.selections.elementId = value.id;
     }
-    if (value.elements){
+    if (value.elements) {
       this.choices[i + 1] = value.elements;
     }
 
@@ -63,14 +62,14 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
   registerOnChange(fn: any): void {
     this.valueChange.subscribe((data: IncidentElement) => fn(data));
   }
-  
+
   writeValue(value: IncidentElement): void {
     this.selections = value;
   }
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes.triggeredBy) {
-      let eventConstraintPipe: EventConstraintPipe = new EventConstraintPipe();
+      const eventConstraintPipe: EventConstraintPipe = new EventConstraintPipe();
       this.selections.elements.forEach((selection, i) => {
         if (!eventConstraintPipe.isEventAllowed(
             selection,
@@ -82,7 +81,7 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
   }
 }
 
-export class IncidentTree{
+export class IncidentTree {
   name: string;
   elements?: IncidentTree[];
   id?: string;
