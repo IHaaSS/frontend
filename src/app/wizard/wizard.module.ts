@@ -13,6 +13,7 @@ import { MatSelectModule } from '@angular/material/select';
 import { EventConstraintPipe } from './tree-selector/event-constraint.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 
 
@@ -33,7 +34,8 @@ import { MatIconModule } from '@angular/material/icon';
     FormsModule,
     MatSelectModule,
     MatTooltipModule,
-    MatIconModule
+    MatIconModule,
+    MatButtonModule
   ],
   exports: [
     EventConstraintPipe
