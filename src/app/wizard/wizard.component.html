@@ -2,7 +2,8 @@
     <div class="container-fluid" style="min-height: calc(100vh - 123px - 70x);">
         <div class="row" style="min-height: calc(100vh - 123px - 120px); max-width: 1500px;">
             <div class="col-md-8">
-                <div class="card" style="min-height: calc(100vh - 123px - 125px); max-height: calc(100vh - 123px - 125px)">
+                <div class="card"
+                    style="min-height: calc(100vh - 123px - 125px); max-height: calc(100vh - 123px - 125px)">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">HaaSS Wizard</h4>
                         <p class="card-category"> Report incidents in 4 simple steps</p>
@@ -17,7 +18,8 @@
                                     </header>
                                     <p class="panel__content">
                                         Threat Sources are entities, which initiate harmful events.<br />
-                                        If the source is unknown or the harmful event was initiated by another event,
+                                        If the source is unknown or the harmful event was initiated by another
+                                        event,
                                         you can skip this step.
                                     </p>
 
@@ -54,7 +56,8 @@
                                     <p class="panel__content">
                                         Threat Events are the processes, which actually cause harm to an
                                         organization.<br />
-                                        You can add multiple events that are part of the observed incident. Selectable
+                                        You can add multiple events that are part of the observed incident.
+                                        Selectable
                                         events are filtered based on the sources selected in the previous step.
                                         Additionally, you can enter a more detailed description for each event.</p>
 
@@ -70,7 +73,8 @@
                                                         *ngFor="let source of incident.sources; let j = index">
                                                         <mat-option *ngIf="source.elements.length > 0"
                                                             [value]="source.id">
-                                                            Source {{j + 1}}: {{source.elements[source.elements.length
+                                                            Source {{j + 1}}:
+                                                            {{source.elements[source.elements.length
                                                             -1]}}
                                                         </mat-option>
                                                     </ng-container>
@@ -110,9 +114,11 @@
                                         <h2 class="panel__title">Report affected Entities</h2>
                                     </header>
                                     <p class="panel__content">
-                                        An entity can be anything that is negatively influenced by the previously stated
+                                        An entity can be anything that is negatively influenced by the previously
+                                        stated
                                         events. <br />
-                                        Please name the specific entity in the corresponding description field. If the
+                                        Please name the specific entity in the corresponding description field. If
+                                        the
                                         entity is unknown this step can be skipped.</p>
                                     <mat-accordion>
                                         <mat-expansion-panel *ngFor="let entity of incident.entities; let i = index"
@@ -145,7 +151,8 @@
                                         <h2 class="panel__title">Estimate the Impact</h2>
                                     </header>
                                     <div class="panel__content">
-                                        Please estimate the severity of the reported incident qualitatively. Hover over
+                                        Please estimate the severity of the reported incident qualitatively. Hover
+                                        over
                                         the selectible options in order to get a more detailed explanation.<br />
                                         <mat-accordion>
                                             <mat-expansion-panel *ngFor="let impact of incident.impacts; let i = index"
@@ -159,37 +166,44 @@
                                             </mat-expansion-panel>
                                         </mat-accordion><br /><br /><br />
                                         <h2 class="panel__title">Additional Information</h2>
-                                        <mat-form-field>
-                                            <input matInput placeholder="Title" required
-                                                matTooltip="only for recognition in the prototype" type="text"
-                                                name="incidentTitle" [(ngModel)]="incident.title">
-                                            <mat-error>
-                                                Please enter a Title
-                                            </mat-error>
-                                        </mat-form-field><br />
-                                        <mat-form-field>
-                                            <input matInput placeholder="eMail" type="email" name="email"
-                                                [(ngModel)]="incident.email" email>
-                                        </mat-form-field><br />
-                                        <!-- <mat-form-field>
+
+                                        <form #wizardform="ngForm" (ngSubmit)="onSubmit()">
+                                            <mat-form-field>
+                                                <input matInput placeholder="Title" required
+                                                    matTooltip="only for recognition in the prototype" type="text"
+                                                    name="incidentTitle" [(ngModel)]="incident.title">
+                                                <mat-error>
+                                                    Please enter a Title
+                                                </mat-error>
+                                            </mat-form-field><br />
+                                            <mat-form-field>
+                                                <input matInput placeholder="eMail" type="email" name="email"
+                                                    [(ngModel)]="incident.email" email>
+                                            </mat-form-field><br />
+                                            <!-- <mat-form-field>
                                        <input matInput [matDatepicker]="picker" placeholder="Date" (dateChange)="dateChange($event)">
                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
                                        <mat-datepicker #picker></mat-datepicker>
                                      </mat-form-field> -->
-                                        <mat-form-field class="detailTextarea">
-                                            <textarea matInput placeholder="General description of the incident"
-                                                [(ngModel)]="incident.description" class="detailTextarea"></textarea>
-                                        </mat-form-field><br /><br />
-                                        <mat-form-field class="detailTextarea">
-                                            <textarea matInput
-                                                placeholder="Technical data (e.g. log data, content of phishing mail)"
-                                                [(ngModel)]="incident.technicalData" class="detailTextarea"></textarea>
-                                        </mat-form-field>
-                                        <div style="float: left; width: 100%">
-                                            <button mat-button style="margin-top: 15px; float: right" (click)="openRefinementDialog()">
-                                                <i class="fa fa-plus"></i> Submit
-                                            </button>
-                                        </div>
+                                            <mat-form-field class="detailTextarea">
+                                                <textarea matInput placeholder="General description of the incident"
+                                                    [(ngModel)]="incident.description"
+                                                    name="description"
+                                                    class="detailTextarea"></textarea>
+                                            </mat-form-field><br /><br />
+                                            <mat-form-field class="detailTextarea">
+                                                <textarea matInput
+                                                    placeholder="Technical data (e.g. log data, content of phishing mail)"
+                                                    [(ngModel)]="incident.technicalData"
+                                                    name="technical"
+                                                    class="detailTextarea"></textarea>
+                                            </mat-form-field>
+                                            <div style="float: left; width: 100%">
+                                                <button mat-button type="submit" style="margin-top: 15px; float: right">
+                                                    <i class="fa fa-plus"></i> Submit
+                                                </button>
+                                            </div>
+                                        </form>
                                     </div>
                                 </div>
                             </mat-step>
@@ -198,12 +212,13 @@
                 </div>
             </div>
             <div class="col-md-4">
-                <div class="card" style="min-height: calc(100vh - 123px - 125px); max-height: calc(100vh - 123px - 125px)">
+                <div class="card"
+                    style="min-height: calc(100vh - 123px - 125px); max-height: calc(100vh - 123px - 125px)">
                     <div class="card-header card-header-danger">
                         <h4 class="card-title ">Selected Elements</h4>
                         <p class="card-category">Overview of selected Incident elements</p>
                     </div>
-                    <div class="card-body"  style="max-height:100%; overflow-y: auto">
+                    <div class="card-body" style="max-height:100%; overflow-y: auto">
                         <app-sidepanel></app-sidepanel>
                     </div>
                 </div>

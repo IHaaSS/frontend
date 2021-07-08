@@ -87,6 +87,12 @@ export class WizardComponent implements OnInit {
     console.log(this.incident);
   }
 
+  onSubmit() {
+    if (this.incident.title) {
+      this.openRefinementDialog();
+    }
+  }
+
   openRefinementDialog() {
     const dialogRef = this.dialog.open(RefinementDialogComponent, {
       width: '800px',
