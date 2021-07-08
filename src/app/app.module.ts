@@ -14,6 +14,7 @@ import {
 } from '@agm/core';
 import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
 import { WizardModule } from './wizard/wizard.module';
+import { IncidentCommentComponent } from './incident-list/incident-comment/incident-comment.component';
 
 @NgModule({
   imports: [

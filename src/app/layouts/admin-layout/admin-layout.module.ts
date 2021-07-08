@@ -17,6 +17,7 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { IncidentListComponent } from 'app/incident-list/incident-list.component';
+import { IncidentCommentComponent } from 'app/incident-list/incident-comment/incident-comment.component';
 
 @NgModule({
   imports: [
@@ -39,7 +40,8 @@ import { IncidentListComponent } from 'app/incident-list/incident-list.component
     DashboardComponent,
     UserProfileComponent,
     IncidentListComponent,
-    IncidentCardComponent
+    IncidentCardComponent,
+    IncidentCommentComponent
   ]
 })
 
