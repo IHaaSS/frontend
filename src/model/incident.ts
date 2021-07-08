@@ -1,3 +1,4 @@
+
 export class Incident {
   sources: IncidentElement[] = [];
   events: IncidentEvent[] = [];
@@ -105,7 +106,7 @@ export class Incident {
 export class IncidentElement {
     elements: string[];
     description: string;
-    id?: number;
+    id: number;
     elementId: string;
 
     constructor() {
@@ -122,3 +123,4 @@ export class IncidentElement {
 export class IncidentEvent extends IncidentElement {
   triggeredBy?: number;
 }
+

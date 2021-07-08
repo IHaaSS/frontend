@@ -185,6 +185,11 @@
                                                 placeholder="Technical data (e.g. log data, content of phishing mail)"
                                                 [(ngModel)]="incident.technicalData" class="detailTextarea"></textarea>
                                         </mat-form-field>
+                                        <div style="float: left; width: 100%">
+                                            <button mat-button style="margin-top: 15px; float: right" (click)="openRefinementDialog()">
+                                                <i class="fa fa-plus"></i> Submit
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
                             </mat-step>

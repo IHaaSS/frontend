@@ -14,6 +14,10 @@ import { EventConstraintPipe } from './tree-selector/event-constraint.pipe';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDialogModule} from '@angular/material/dialog';
+import { RefinementDialogComponent } from './refinement-dialog/refinement-dialog.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import {MatRadioModule} from '@angular/material/radio';
 
 
 
@@ -22,7 +26,8 @@ import { MatButtonModule } from '@angular/material/button';
     WizardComponent,
     TreeSelectorComponent,
     SidepanelComponent,
-    EventConstraintPipe
+    EventConstraintPipe,
+    RefinementDialogComponent
   ],
   imports: [
     CommonModule,
@@ -35,8 +40,15 @@ import { MatButtonModule } from '@angular/material/button';
     MatSelectModule,
     MatTooltipModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDialogModule,
+    MatProgressSpinnerModule,
+    MatRadioModule
   ],
+  entryComponents: [
+    RefinementDialogComponent
+  ],
+
   exports: [
     EventConstraintPipe
   ]

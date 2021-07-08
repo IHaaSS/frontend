@@ -6,6 +6,8 @@ import events from 'model/events.json';
 import entities from 'model/entities.json';
 import impacts from 'model/impacts.json';
 import { IncidentTree } from './tree-selector/tree-selector.component';
+import { MatDialog } from '@angular/material/dialog';
+import { RefinementDialogComponent } from './refinement-dialog/refinement-dialog.component';
 
 @Component({
   selector: 'app-wizard',
@@ -35,7 +37,7 @@ export class WizardComponent implements OnInit {
 
   selected = [];
 
-  constructor(private incidentService: IncidentService) {
+  constructor(private incidentService: IncidentService, private dialog: MatDialog) {
     this.sourcesTree = sources;
     this.eventsTree = events;
     this.entitiesTree = entities;
@@ -85,6 +87,17 @@ export class WizardComponent implements OnInit {
     console.log(this.incident);
   }
 
+  openRefinementDialog() {
+    const dialogRef = this.dialog.open(RefinementDialogComponent, {
+      width: '800px',
+      data: this.incident
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed');
+      // this.animal = result;
+    });
+  }
 
   dateChange(event: any) {
     this.incident.time = event.value.format('YYYY-MM-DD');
