@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders, HttpResponse } from '@angular/common/http';
 import { Component, Inject, OnDestroy, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Answer, AnswerService, Question } from 'app/services/answer.service';
-import { Incident } from 'model/incident';
+import { Incident } from 'app/model/incident';
 
 @Component({
   selector: 'app-refinement-dialog',

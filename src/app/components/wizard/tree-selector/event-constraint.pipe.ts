@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { Incident } from 'model/incident';
-import constraintsJson from 'model/constraints.json';
+import { Incident } from 'app/model/incident';
+import constraintsJson from 'app/model/constraints.json';
 
 @Pipe({
   name: 'eventConstraint'

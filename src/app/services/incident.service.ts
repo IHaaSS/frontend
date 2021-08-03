@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Incident } from 'model/incident';
+import { Incident } from 'app/model/incident';
 
 @Injectable({
   providedIn: 'root'

@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 import { IncidentService } from 'app/services/incident.service';
-import { Incident, IncidentElement } from 'model/incident';
+import { Incident, IncidentElement } from 'app/model/incident';
 import { EventConstraintPipe } from './event-constraint.pipe';
 
 @Component({

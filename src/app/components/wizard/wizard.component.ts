@@ -1,10 +1,10 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { IncidentService } from 'app/services/incident.service';
-import { Incident, IncidentElement } from 'model/incident';
-import sources from 'model/sources.json';
-import events from 'model/events.json';
-import entities from 'model/entities.json';
-import impacts from 'model/impacts.json';
+import { Incident, IncidentElement } from 'app/model/incident';
+import sources from 'app/model/sources.json';
+import events from 'app/model/events.json';
+import entities from 'app/model/entities.json';
+import impacts from 'app/model/impacts.json';
 import { IncidentTree } from './tree-selector/tree-selector.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RefinementDialogComponent } from './refinement-dialog/refinement-dialog.component';

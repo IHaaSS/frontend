@@ -40,4 +40,4 @@ import { MatButtonModule } from '@angular/material/button';
     SidebarComponent
   ]
 })
-export class ComponentsModule { }
+export class LayoutModule { }

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { IncidentService } from 'app/services/incident.service';
-import { Incident } from 'model/incident';
+import { Incident } from 'app/model/incident';
 
 @Component({
   selector: 'app-sidepanel',

@@ -3,8 +3,8 @@ import { BehaviorSubject, Observable, of } from 'rxjs';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { catchError } from 'rxjs/operators';
 import { environment } from '../../environments/environment';
-import { Incident } from 'model/incident';
-import { BackendIncident } from 'model/backend-incident';
+import { Incident } from 'app/model/incident';
+import { BackendIncident } from 'app/model/backend-incident';
 
 @Injectable({
   providedIn: 'root'

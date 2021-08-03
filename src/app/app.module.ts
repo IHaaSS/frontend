@@ -6,15 +6,14 @@ import { RouterModule } from '@angular/router';
 
 
 import { AppRoutingModule } from './app.routing';
-import { ComponentsModule } from './components/components.module';
 
-import { AppComponent } from './app.component';
 import {
   AgmCoreModule
 } from '@agm/core';
-import { AdminLayoutComponent } from './layouts/admin-layout/admin-layout.component';
-import { WizardModule } from './wizard/wizard.module';
-import { IncidentCommentComponent } from './incident-list/incident-comment/incident-comment.component';
+import { AdminLayoutComponent } from './components/layout/admin-layout/admin-layout.component';
+import { WizardModule } from './components/wizard/wizard.module';
+import { LayoutModule } from './components/layout/layout.module';
+import { AppComponent } from './components/app.component';
 
 @NgModule({
   imports: [
@@ -22,7 +21,7 @@ import { IncidentCommentComponent } from './incident-list/incident-comment/incid
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    ComponentsModule,
+    LayoutModule,
     RouterModule,
     WizardModule,
     AppRoutingModule,

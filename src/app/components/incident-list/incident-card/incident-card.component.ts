@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
-import { Incident } from 'model/incident';
+import { Incident } from 'app/model/incident';
 
 @Component({
   selector: 'app-incident-card',
