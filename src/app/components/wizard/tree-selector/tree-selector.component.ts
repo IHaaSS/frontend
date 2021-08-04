@@ -28,7 +28,7 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
    }
 
   ngOnInit() {
-    this.incident = this.incidentService.getIncidents();
+    this.incident = this.incidentService.getIncident();
     this.choices[0] = this.incidentTree.elements;
 
   }

@@ -23,7 +23,6 @@ export class WizardComponent implements OnInit {
   eventsPanelOpened: boolean[] = [true];
   entitiesPanelOpened: boolean[] = [true];
   impactsPanelOpened: boolean[] = [true];
-  serverAnswer;
 
   done: boolean;
   sourcesTree: IncidentTree;
@@ -45,7 +44,7 @@ export class WizardComponent implements OnInit {
   }
 
   async ngOnInit(): Promise<void> {
-    this.incident = this.incidentService.getIncidents();
+    this.incident = this.incidentService.getIncident();
   }
 
 

@@ -11,7 +11,7 @@ export class SidepanelComponent implements OnInit {
   incident: Incident;
 
   constructor(incidentService: IncidentService) {
-    this.incident = incidentService.getIncidents();
+    this.incident = incidentService.getIncident();
   }
 
   ngOnInit(): void {

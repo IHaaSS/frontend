@@ -11,7 +11,7 @@ export class IncidentService {
     this.incident = new Incident();
    }
 
-  getIncidents(): Incident {
+  getIncident(): Incident {
     return this.incident;
   }
 
