@@ -18,6 +18,7 @@ import { UserProfileComponent } from 'app/components/user-profile/user-profile.c
 import { IncidentListComponent } from 'app/components/incident-list/incident-list.component';
 import { IncidentCardComponent } from 'app/components/incident-list/incident-card/incident-card.component';
 import { IncidentCommentComponent } from 'app/components/incident-list/incident-comment/incident-comment.component';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [
@@ -34,7 +35,8 @@ import { IncidentCommentComponent } from 'app/components/incident-list/incident-
     MatCardModule,
     MatIconModule,
     MatExpansionModule,
-    MatListModule
+    MatListModule,
+    MatProgressSpinnerModule,
   ],
   declarations: [
     DashboardComponent,

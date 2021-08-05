@@ -1,4 +1,5 @@
 <mat-card class="incident-card">
+    <mat-spinner [diameter]="25" *ngIf="!incident" class="topcorner"></mat-spinner>
     <mat-card-header>
         <div mat-card-avatar class="vote">
             <div class="vote-arrow" (click)="vote(1)">
@@ -9,8 +10,10 @@
                 <mat-icon>arrow_downward</mat-icon>
             </div>
         </div>
-        <mat-card-title class="incident-card-title">Incident</mat-card-title>
-        <mat-card-subtitle>Blockchain kaputt</mat-card-subtitle>
+        <mat-card-title class="incident-card-title">
+            {{!incident ? contractIncident.ref : incident.title}}
+        </mat-card-title>
+        <mat-card-subtitle>{{contractIncident.author}}</mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
         <p>
@@ -20,8 +23,10 @@
     </mat-card-content>
     <mat-card-actions class="incident-card-actions">
         <button mat-button (click)="toggleComments()">
-            <mat-icon>insert_comment</mat-icon> {{numberComments}} Comments
+            <mat-icon>insert_comment</mat-icon> 
+            {{contractIncident.comments.length}} Comments
         </button>
+        <mat-spinner [diameter]="15" *ngIf="commentsLoading"></mat-spinner>
         <button mat-button>SHARE</button>
     </mat-card-actions>
     <mat-expansion-panel hideToggle #commentsPanel>
@@ -42,7 +47,7 @@
         <mat-form-field class="example-full-width">
             <mat-label>Leave a comment</mat-label>
             <textarea matInput rows="3"></textarea>
-            
+
         </mat-form-field>
         <button mat-button>
             <mat-icon>

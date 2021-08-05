@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { IncidentService } from 'app/services/incident.service';
 import { Incident } from 'app/model/incident';
+import { ContractIncident, ContractService } from 'app/services/contract.service';
 
 @Component({
   selector: 'app-incident-list',
@@ -8,7 +9,7 @@ import { Incident } from 'app/model/incident';
   styleUrls: ['./incident-list.component.css']
 })
 export class IncidentListComponent implements OnInit {
-  incident: Incident;
+  public contractIncidents: ContractIncident[];
 
   public incidents = [
     {id: '1', name: 'Angriff', source: 'Malory', event: 'ganz böses Ereignis', entities: 'ganze blockchain', impact: 'alles kaputt'},
@@ -34,11 +35,13 @@ export class IncidentListComponent implements OnInit {
     {id: '21', name: 'Angriff', source: 'Malory', event: 'ganz böses Ereignis', entities: 'ganze blockchain', impact: 'alles kaputt'},
   ];
 
-  constructor(incidentService: IncidentService) {
-    this.incident = incidentService.getIncidents();
+  constructor(private contractService: ContractService) {
   }
 
   ngOnInit() {
+    this.contractService.getIncidents().then(contractIncidents => {
+      this.contractIncidents = contractIncidents;
+    });
   }
 
 }

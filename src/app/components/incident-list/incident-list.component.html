@@ -8,11 +8,9 @@
                         <p class="card-category"> List of reported Incidents</p>
                     </div>
                     <div class="card-body">
-                        <app-incident-card [incident]="incident"></app-incident-card>
+                        <app-incident-card  *ngFor="let contractIncident of contractIncidents" [contractIncident]="contractIncident"></app-incident-card>
+                        <mat-spinner [diameter]="30" *ngIf="!contractIncidents"></mat-spinner>
                         
-                        <app-incident-card [incident]="incident"></app-incident-card>
-                        
-                        <app-incident-card [incident]="incident"></app-incident-card>
                         <div class="table-responsive">
                             <table class="table">
                                 <thead class=" text-primary">
