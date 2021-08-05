@@ -1,25 +1,25 @@
 <div class="container">
-    <div class="row">
+    <div class="row comment-header">
         <div class="vote col-auto">
             <div class="vote-arrow" (click)="vote(1)">
                 <mat-icon>arrow_upward</mat-icon>
             </div>
-            <div>{{votes}}</div>
+            <div>{{comment.votes}}</div>
             <div class="vote-arrow" (click)="vote(-1)">
                 <mat-icon>arrow_downward</mat-icon>
             </div>
         </div>
-        <div class="col">
-            <h5 class="my-0">Zefix scho wieder ein Hacker im Bitcoin drin :(</h5>
+        <div class="col d-flex align-items-center">
+            <!-- <h5 class="my-0">Zefix scho wieder ein Hacker im Bitcoin drin :(</h5> -->
             <div class="subtitle">
-                User: Bene<br>
-                Date: Hoibazwölfe
+                User: {{comment.author}}<br>
+                Date: {{comment.created.toLocaleString()}}
             </div>
         </div>
     </div>   
     <div class="row content">
         <div class="col">
-            Meiomei der Incident is scho bled. Wos kemman do macha
+            {{comment.content}}
         </div>
     </div>
 </div>

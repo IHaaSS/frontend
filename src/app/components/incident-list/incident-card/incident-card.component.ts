@@ -1,6 +1,7 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Incident } from 'app/model/incident';
+import { IncidentComment } from 'app/model/incident-comment';
 import { ContractIncident, ContractService } from 'app/services/contract.service';
 import { delay } from 'rxjs/operators';
 
@@ -17,7 +18,7 @@ export class IncidentCardComponent implements OnInit {
   numberComments = 0;
 
   incident: Incident;
-  comments: string[] = [];
+  comments: IncidentComment[] = [];
   commentsLoading = false;
 
   constructor(private contractService: ContractService) { }
@@ -33,12 +34,26 @@ export class IncidentCardComponent implements OnInit {
   }
 
   async loadComments() {
+    if (this.comments.length === this.contractIncident.comments.length) {
+      return;
+    } else {
+      this.comments = [];
+    }
     this.commentsLoading = true;
     const promises: Promise<any>[] = [];
     for (const comment of this.contractIncident.comments) {
-      promises.push(this.contractService.getIpfsContent(comment.content));
+      promises.push((async () => {
+        const result = await this.contractService.getIpfsContent(comment.content);
+        this.comments.push({
+          author: this.contractIncident.author,
+          content: result.content,
+          created: new Date(this.contractIncident.created * 1000),
+          votes: this.contractIncident.votedUp.length - this.contractIncident.votedDown.length
+        });
+      })());
     }
     await Promise.all(promises);
+    console.log(this.comments);
     this.commentsLoading = false;
   }
 

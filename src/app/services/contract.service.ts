@@ -14,7 +14,7 @@ export class ContractService {
     let contractIncidents: ContractIncident[];
     const url = environment.baseUrl + '/contract/incidents';
     console.log('GET ' + url);
-    await new Promise(f => setTimeout(f, 2000));
+    // await new Promise(f => setTimeout(f, 2000));
     await this.http.get(url).toPromise().then(
       response => {
         contractIncidents = response as ContractIncident[];
@@ -30,7 +30,7 @@ export class ContractService {
     let content: any;
     const url = environment.baseUrl + '/ipfs/' + ref;
     console.log('GET ' + url);
-    await new Promise(f => setTimeout(f, 2000));
+    // await new Promise(f => setTimeout(f, 2000));
     await this.http.get(url).toPromise().then(
       response => {
         content = response;

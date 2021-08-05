@@ -31,18 +31,10 @@
     </mat-card-actions>
     <mat-expansion-panel hideToggle #commentsPanel>
         <mat-list>
-            <p>
-                <app-incident-comment></app-incident-comment>
+            <p *ngFor="let comment of comments">
+                <app-incident-comment [comment]="comment"></app-incident-comment><br>
+                <mat-divider></mat-divider>
             </p>
-            <mat-divider></mat-divider>
-            <p>
-                <app-incident-comment></app-incident-comment>
-            </p>
-            <mat-divider></mat-divider>
-            <p>
-                <app-incident-comment></app-incident-comment>
-            </p>
-            <mat-divider></mat-divider>
         </mat-list><br>
         <mat-form-field class="example-full-width">
             <mat-label>Leave a comment</mat-label>

@@ -6,7 +6,7 @@
 .vote {
     text-align: center;
     line-height: 1;
-    font-size: 0.9em;
+    font-size: 12px;
 }
 
 .vote-arrow {
@@ -16,10 +16,11 @@
     user-select: none;
     cursor: pointer;
     padding-top: 3px;
+    transform: scale(.9);
 }
 
 .subtitle {
-    font-size: 0.9em;
+    font-size: 1em;
     color: rgb(155, 155, 155)
 }
 

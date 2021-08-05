@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { IncidentComment } from 'app/model/incident-comment';
 
 @Component({
   selector: 'app-incident-comment',
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./incident-comment.component.css']
 })
 export class IncidentCommentComponent implements OnInit {
-  votes = 0;
+  @Input() comment: IncidentComment;
 
   constructor() { }
 
@@ -14,7 +15,6 @@ export class IncidentCommentComponent implements OnInit {
   }
 
   public vote(vote: number): void {
-    this.votes += vote;
+    this.comment.votes += vote;
   }
-
 }
