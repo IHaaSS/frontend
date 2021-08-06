@@ -1,5 +1,12 @@
 <mat-card class="incident-card">
     <mat-spinner [diameter]="25" *ngIf="!incident" class="topcorner"></mat-spinner>
+    <mat-icon *ngIf="impact" class="topcorner" [ngClass]="{
+        'very-low': impact === 'Very Low', 
+        'low': impact === 'Low', 
+        'moderate': impact === 'Moderate', 
+        'high': impact === 'High', 
+        'very-high': impact === 'Very High'
+    }">local_fire_department</mat-icon>
     <mat-card-header>
         <div mat-card-avatar class="vote">
             <div class="vote-arrow" (click)="vote(1)">
@@ -15,15 +22,15 @@
         </mat-card-title>
         <mat-card-subtitle>{{contractIncident.author}}</mat-card-subtitle>
     </mat-card-header>
-    <mat-card-content>
+    <mat-card-content class="incident-card-content">
         <p>
-            Blockchain incident
+            <app-compact-incident *ngIf="incident" [incident]="incident"></app-compact-incident>
         </p>
 
     </mat-card-content>
     <mat-card-actions class="incident-card-actions">
         <button mat-button (click)="toggleComments()">
-            <mat-icon>insert_comment</mat-icon> 
+            <mat-icon>insert_comment</mat-icon>
             {{contractIncident.comments.length}} Comments
         </button>
         <mat-spinner [diameter]="15" *ngIf="commentsLoading"></mat-spinner>

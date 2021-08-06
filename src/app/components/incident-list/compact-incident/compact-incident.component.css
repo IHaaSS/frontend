@@ -1,0 +1,25 @@
+table {
+    border-collapse: collapse;
+    border-top: solid 1px rgb(214, 214, 214);
+    border-bottom: solid 1px rgb(214, 214, 214);
+}
+
+tr {
+    border: none;
+}
+
+td,
+th {
+    border: none;
+    border-right: solid 1px rgb(214, 214, 214);
+    border-left: solid 1px rgb(214, 214, 214);
+}
+
+th {
+    border-bottom: solid 1px rgb(214, 214, 214);
+    background-color: rgb(245, 245, 245);
+}
+
+.incident-column {
+    width: 25%;
+}

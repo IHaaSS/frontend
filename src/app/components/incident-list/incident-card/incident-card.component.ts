@@ -20,6 +20,7 @@ export class IncidentCardComponent implements OnInit {
   incident: Incident;
   comments: IncidentComment[] = [];
   commentsLoading = false;
+  impact: string;
 
   constructor(private contractService: ContractService) { }
 
@@ -30,7 +31,7 @@ export class IncidentCardComponent implements OnInit {
 
   async loadIncidentData() {
     this.incident = await this.contractService.getIpfsContent(this.contractIncident.content);
-
+    this.impact = (this.incident.impacts[0] as any).impact[0];
   }
 
   async loadComments() {

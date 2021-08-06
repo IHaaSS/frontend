@@ -19,6 +19,7 @@ import { IncidentListComponent } from 'app/components/incident-list/incident-lis
 import { IncidentCardComponent } from 'app/components/incident-list/incident-card/incident-card.component';
 import { IncidentCommentComponent } from 'app/components/incident-list/incident-comment/incident-comment.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { CompactIncidentComponent } from 'app/components/incident-list/compact-incident/compact-incident.component';
 
 @NgModule({
   imports: [
@@ -43,7 +44,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     UserProfileComponent,
     IncidentListComponent,
     IncidentCardComponent,
-    IncidentCommentComponent
+    IncidentCommentComponent,
+    CompactIncidentComponent
   ]
 })
 
