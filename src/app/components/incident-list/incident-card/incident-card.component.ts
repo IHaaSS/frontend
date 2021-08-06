@@ -3,6 +3,7 @@ import { MatExpansionPanel } from '@angular/material/expansion';
 import { Incident } from 'app/model/incident';
 import { IncidentComment } from 'app/model/incident-comment';
 import { ContractIncident, ContractService } from 'app/services/contract.service';
+import { Users } from 'app/model/users';
 import { delay } from 'rxjs/operators';
 
 @Component({
@@ -21,11 +22,14 @@ export class IncidentCardComponent implements OnInit {
   comments: IncidentComment[] = [];
   commentsLoading = false;
   impact: string;
+  usernames = Users.usernames;
+  date: Date;
 
   constructor(private contractService: ContractService) { }
 
   ngOnInit(): void {
     console.log(this.contractIncident);
+    this.date = new Date(this.contractIncident.created * 1000);
     this.loadIncidentData();
   }
 

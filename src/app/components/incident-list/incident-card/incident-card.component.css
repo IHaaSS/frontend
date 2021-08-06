@@ -30,27 +30,27 @@
 }
 
 .topcorner {
-    position:absolute;
-    top:15px;
-    right:15px;
+    position: absolute;
+    top: 15px;
+    right: 15px;
 }
 
 .very-low {
-    color:yellow
+    color: yellow
 }
 
 .low {
-    color:rgb(255, 217, 0)
+    color: rgb(255, 217, 0)
 }
 
 .moderate {
-    color:rgb(255, 187, 0)
+    color: rgb(255, 187, 0)
 }
 
 .high {
-    color:rgb(255, 115, 0)
+    color: rgb(255, 115, 0)
 }
 
 .very-high {
-    color:rgb(255, 8, 0)
+    color: rgb(255, 8, 0)
 }

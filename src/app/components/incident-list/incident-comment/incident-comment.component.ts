@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IncidentComment } from 'app/model/incident-comment';
+import { Users } from 'app/model/users';
 
 @Component({
   selector: 'app-incident-comment',
@@ -8,6 +9,8 @@ import { IncidentComment } from 'app/model/incident-comment';
 })
 export class IncidentCommentComponent implements OnInit {
   @Input() comment: IncidentComment;
+
+  usernames = Users.usernames;
 
   constructor() { }
 

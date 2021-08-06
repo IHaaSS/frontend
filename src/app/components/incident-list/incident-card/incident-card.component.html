@@ -20,7 +20,9 @@
         <mat-card-title class="incident-card-title">
             {{!incident ? contractIncident.ref : incident.title}}
         </mat-card-title>
-        <mat-card-subtitle>{{contractIncident.author}}</mat-card-subtitle>
+        <mat-card-subtitle>
+            User: {{usernames[contractIncident.author.toLowerCase()]}} <br> Date: {{date.toLocaleString()}}
+        </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content class="incident-card-content">
         <p>

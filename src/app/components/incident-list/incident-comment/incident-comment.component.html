@@ -12,11 +12,10 @@
         <div class="col d-flex align-items-center">
             <!-- <h5 class="my-0">Zefix scho wieder ein Hacker im Bitcoin drin :(</h5> -->
             <div class="subtitle">
-                User: {{comment.author}}<br>
-                Date: {{comment.created.toLocaleString()}}
+                User: {{usernames[comment.author.toLowerCase()]}}<br> Date: {{comment.created.toLocaleString()}}
             </div>
         </div>
-    </div>   
+    </div>
     <div class="row content">
         <div class="col">
             {{comment.content}}
