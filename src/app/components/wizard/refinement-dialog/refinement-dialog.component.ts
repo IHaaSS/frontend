@@ -65,7 +65,8 @@ export class RefinementDialogComponent implements OnInit, OnDestroy {
       selection.attributeId = question.attrId;
       selection.topicId = question.topicId;
       if (this.valAnswer > 0) {
-        this.selections[this.index] = selection;
+        if(selection)
+          this.selections.push(selection);
         if (questionObj.children !== undefined) {
           console.log('childquestions found');
           this.valAnswer = 0;
