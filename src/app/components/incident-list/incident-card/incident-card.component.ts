@@ -34,7 +34,7 @@ export class IncidentCardComponent implements OnInit {
   }
 
   async loadIncidentData() {
-    this.incident = await this.contractService.getIpfsContent(this.contractIncident.content);
+    this.incident = JSON.parse(await this.contractService.getIpfsContent(this.contractIncident.content));
     this.impact = (this.incident.impacts[0] as any).impact[0];
   }
 
