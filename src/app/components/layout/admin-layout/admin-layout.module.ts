@@ -14,12 +14,12 @@ import {MatIconModule} from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
 import { DashboardComponent } from 'app/components/dashboard/dashboard.component';
-import { UserProfileComponent } from 'app/components/user-profile/user-profile.component';
 import { IncidentListComponent } from 'app/components/incident-list/incident-list.component';
 import { IncidentCardComponent } from 'app/components/incident-list/incident-card/incident-card.component';
 import { IncidentCommentComponent } from 'app/components/incident-list/incident-comment/incident-comment.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CompactIncidentComponent } from 'app/components/incident-list/compact-incident/compact-incident.component';
+import { AdminListComponent } from 'app/components/incident-list/admin-list/admin-list.component';
 
 @NgModule({
   imports: [
@@ -41,7 +41,7 @@ import { CompactIncidentComponent } from 'app/components/incident-list/compact-i
   ],
   declarations: [
     DashboardComponent,
-    UserProfileComponent,
+    AdminListComponent,
     IncidentListComponent,
     IncidentCardComponent,
     IncidentCommentComponent,

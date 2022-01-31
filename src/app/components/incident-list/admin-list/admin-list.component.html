@@ -4,8 +4,8 @@
             <div class="col-md-8">
                 <div class="card" style="min-height: calc(100vh - 123px - 90px); max-height: calc(100vh - 123px - 90px)">
                     <div class="card-header card-header-danger">
-                        <h4 class="card-title">Incidents</h4>
-                        <p class="card-category"> List of reported Incidents</p>
+                        <h4 class="card-title">Admin</h4>
+                        <p class="card-category">Approve Incidents</p>
                     </div>
                     <div class="card-body" style="max-height:100%; overflow-y: auto">
                         <app-incident-card *ngFor="let contractIncident of contractIncidents" [contractIncident]="contractIncident"></app-incident-card>

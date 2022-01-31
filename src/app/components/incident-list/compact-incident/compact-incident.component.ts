@@ -14,6 +14,8 @@ export class CompactIncidentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log('Preparing incident table for: ');
+    console.log(this.incident);
     // prepare incident data for table
     this.incident.sources.forEach((element, index) => {
       if (!this.tableData[index]) {
