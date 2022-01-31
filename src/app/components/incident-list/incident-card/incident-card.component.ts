@@ -2,7 +2,7 @@ import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
 import { Incident } from 'app/model/incident';
 import { IncidentComment } from 'app/model/incident-comment';
-import { ContractIncident, ContractService } from 'app/services/contract.service';
+import { ContractComment, ContractIncident, ContractService } from 'app/services/contract.service';
 import { Users } from 'app/model/users';
 import { delay } from 'rxjs/operators';
 
@@ -25,6 +25,8 @@ export class IncidentCardComponent implements OnInit {
   usernames = Users.usernames;
   date: Date;
 
+  newComment: string = "";
+
   constructor(private contractService: ContractService) { }
 
   ngOnInit(): void {
@@ -35,15 +37,17 @@ export class IncidentCardComponent implements OnInit {
 
   async loadIncidentData() {
     this.incident = JSON.parse(await this.contractService.getIpfsContent(this.contractIncident.content));
+    console.log(this.incident);
     this.impact = (this.incident.impacts[0] as any).impact[0];
   }
 
   async loadComments() {
+    console.log('loading Comments')
     if (this.comments.length === this.contractIncident.comments.length) {
       return;
-    } else {
-      this.comments = [];
-    }
+    } 
+
+    this.comments = [];
     this.commentsLoading = true;
     const promises: Promise<any>[] = [];
     for (const comment of this.contractIncident.comments) {
@@ -67,11 +71,17 @@ export class IncidentCardComponent implements OnInit {
   }
 
   public async toggleComments() {
+    console.log('toggle comments')
     if (this.commentsPanel.expanded) {
       this.commentsPanel.close();
     } else {
       await this.loadComments();
       this.commentsPanel.open();
     }
+  }
+
+  public async postComment(){
+    console.log("Posting comment: " + this.newComment)
+    this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment})
   }
 }

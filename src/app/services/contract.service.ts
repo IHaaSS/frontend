@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'environments/environment';
 
@@ -41,6 +41,33 @@ export class ContractService {
     );
     return content;
   }
+
+  async postIpfsContent(ref: string, content: string){
+
+  }
+
+  async postComment(parentRef: string, incidentRef: string, content: CommentContent) {
+    const url = environment.baseUrl + '/contract/incidents/comments';
+    console.log('POST ' + url);
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
+
+    const body = {
+      parent: parentRef,
+      comment: "hallo",
+      incident: incidentRef
+    };
+    console.log(body)
+
+    await this.http.post(url, JSON.stringify(body), {headers: headers}).toPromise().then(
+      response => {
+        console.log('POST comment successful');
+      },
+      response => {
+        console.log('POST call in error', response);
+      }
+    );
+  }
 }
 
 export class ContractIncident {
@@ -48,19 +75,26 @@ export class ContractIncident {
   content: string;
   created: number;
   author: string;
-  comments: [{
-    ref: string;
-    parent: string;
-    created: number;
-    author: string;
-    content: string;
-    votedUp: [];
-    votedDown: [];
-    attachmentList: [];
-  }];
+  comments: ContractComment[];
   votedUp: [];
   votedDown: [];
   attachments: [];
+}
+
+export class ContractComment {
+  ref: string;
+  parent: string;
+  created: number;
+  author: string;
+  content: string;
+  votedUp: [];
+  votedDown: [];
+  attachmentList: [];
+}
+
+export class CommentContent {
+  author: string;
+  text: string;
 }
 
 export class Comment {

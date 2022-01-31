@@ -47,9 +47,13 @@
         </mat-list><br>
         <mat-form-field class="example-full-width">
             <mat-label>Leave a comment</mat-label>
-            <textarea matInput rows="3"></textarea>
+            <textarea matInput rows="3" [(ngModel)]="newComment"></textarea>
 
         </mat-form-field>
+        <button mat-button (click)="postComment()">
+            <mat-icon>
+                send</mat-icon> Post
+        </button>
         <button mat-button>
             <mat-icon>
                 file_upload</mat-icon> Append file

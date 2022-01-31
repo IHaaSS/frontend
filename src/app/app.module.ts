@@ -14,6 +14,7 @@ import { AdminLayoutComponent } from './components/layout/admin-layout/admin-lay
 import { WizardModule } from './components/wizard/wizard.module';
 import { LayoutModule } from './components/layout/layout.module';
 import { AppComponent } from './components/app.component';
+import { AdminListComponent } from './components/incident-list/admin-list/admin-list.component';
 
 @NgModule({
   imports: [
