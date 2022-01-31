@@ -23,17 +23,16 @@
             </span>
         </div>
     </div>
-
-    <div *ngIf="done">
-        <div class="wizard__congrats-message">
-            <h1>
-                Thank you for reporting the incident<br />
-            </h1>
-            <!-- <div> <button (click)="redirect()" class="button">New Incident</button></div> -->
-        </div>
+</div>
+<div *ngIf="done">
+    <div class="wizard__congrats-message">
+        <h1>
+            Thank you for reporting the incident<br />
+        </h1>
+        <!-- <div> <button (click)="redirect()" class="button">New Incident</button></div> -->
     </div>
 </div>
-<div *ngIf="!questions">
+<div *ngIf="!questions && !done">
     <div class="wizard__congrats-message">
         <span>Further actions are being computed<br />
             <mat-spinner *ngIf="!stixIncidentUrl" diameter="20" style="margin:0 auto;"></mat-spinner>

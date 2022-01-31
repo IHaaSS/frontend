@@ -33,7 +33,9 @@ export class RefinementDialogComponent implements OnInit, OnDestroy {
     this.reset();
     this.response = await this.answerService.postIncident(this.data);
     this.questions = this.response.questions[0];
-    console.log(this.questions);
+    if(!this.questions){
+      this.done = true;
+    }
   }
 
   reset() {
