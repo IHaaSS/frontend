@@ -50,13 +50,16 @@
             <textarea matInput rows="3" [(ngModel)]="newComment"></textarea>
 
         </mat-form-field>
-        <button mat-button (click)="postComment()">
-            <mat-icon>
-                send</mat-icon> Post
-        </button>
-        <button mat-button>
-            <mat-icon>
-                file_upload</mat-icon> Append file
-        </button>
+        
+        <mat-card-actions class="incident-card-actions">
+            <button mat-button (click)="postComment()">
+                <mat-icon>send</mat-icon> POST
+            </button>
+            <mat-spinner [diameter]="15" *ngIf="postingLoading"></mat-spinner>
+            <button mat-button>
+                <mat-icon>
+                    file_upload</mat-icon> Append file
+            </button>
+        </mat-card-actions>
     </mat-expansion-panel>
 </mat-card>

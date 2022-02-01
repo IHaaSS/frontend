@@ -4,7 +4,6 @@ import { Incident } from 'app/model/incident';
 import { IncidentComment } from 'app/model/incident-comment';
 import { ContractComment, ContractIncident, ContractService } from 'app/services/contract.service';
 import { Users } from 'app/model/users';
-import { delay } from 'rxjs/operators';
 import { UsersService } from 'app/services/users.service';
 
 @Component({
@@ -22,6 +21,7 @@ export class IncidentCardComponent implements OnInit {
   incident: Incident;
   comments: IncidentComment[] = [];
   commentsLoading = false;
+  postingLoading = false;
   impact: string;
   usernames = Users.usernames;
   date: Date;
@@ -84,8 +84,8 @@ export class IncidentCardComponent implements OnInit {
 
   public async postComment(){
     console.log("Posting comment: " + this.newComment);
-    this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment});
-    console.log(this.usersService.role);
+    this.postingLoading = true;
+    await this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment});
     this.comments.push({
       author: this.usersService.role,
       created: new Date(),
@@ -94,5 +94,6 @@ export class IncidentCardComponent implements OnInit {
     });
     this.numberComments++;
     this.newComment = '';
+    this.postingLoading = false;
   }
 }
