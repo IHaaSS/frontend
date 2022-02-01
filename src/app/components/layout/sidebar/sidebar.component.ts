@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Roles } from 'app/model/users';
+import { UsersService } from 'app/services/users.service';
 
 declare const $: any;
 declare interface RouteInfo {
@@ -6,12 +8,13 @@ declare interface RouteInfo {
     title: string;
     icon: string;
     class: string;
+    admin: boolean;
 }
 export const ROUTES: RouteInfo[] = [
-    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '' },
-    { path: '/wizard', title: 'Wizard',  icon: 'bubble_chart', class: '' },
-    { path: '/table-list', title: 'Incidents',  icon: 'content_paste', class: '' },
-    { path: '/admin', title: 'Admin',  icon: 'person', class: '' }
+    { path: '/dashboard', title: 'Dashboard',  icon: 'dashboard', class: '', admin: false },
+    { path: '/wizard', title: 'Wizard',  icon: 'bubble_chart', class: '', admin: false },
+    { path: '/table-list', title: 'Incidents',  icon: 'content_paste', class: '', admin: false },
+    { path: '/admin', title: 'Admin',  icon: 'person', class: '', admin: true }
 ];
 
 @Component({
@@ -20,9 +23,10 @@ export const ROUTES: RouteInfo[] = [
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
+  Roles = Roles;
   menuItems: any[];
 
-  constructor() { }
+  constructor(public usersService: UsersService) { }
 
   ngOnInit() {
     this.menuItems = ROUTES.filter(menuItem => menuItem);

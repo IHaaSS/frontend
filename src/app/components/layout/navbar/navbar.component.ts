@@ -2,6 +2,8 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
+import { Roles } from 'app/model/users';
+import { UsersService } from 'app/services/users.service';
 
 @Component({
   selector: 'app-navbar',
@@ -15,10 +17,14 @@ export class NavbarComponent implements OnInit {
     private toggleButton: any;
     private sidebarVisible: boolean;
     private $layer: any;
+    Roles = Roles;
 
-    constructor(location: Location,  private element: ElementRef, private router: Router) {
-      this.location = location;
-          this.sidebarVisible = false;
+    constructor(location: Location,  private element: ElementRef, private router: Router, private usersService: UsersService) {
+        this.location = location;
+        this.sidebarVisible = false;
+
+        console.log(Roles);
+        
     }
 
     ngOnInit() {
@@ -121,5 +127,9 @@ export class NavbarComponent implements OnInit {
           }
       }
       return 'Dashboard';
+    }
+
+    changeRole(role: Roles){
+        this.usersService.role = role;
     }
 }

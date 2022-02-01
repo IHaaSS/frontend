@@ -12,3 +12,8 @@ export class Users {
     '0x9bd11f75ccc14cb06859cfd49f8a27af2405a9c5': 'Sabrina'
     };
 }
+
+export enum Roles {
+    User = "User",
+    Admin = "Admin"
+}
