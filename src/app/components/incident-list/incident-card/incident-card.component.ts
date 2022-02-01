@@ -84,6 +84,7 @@ export class IncidentCardComponent implements OnInit {
   public async postComment(){
     console.log("Posting comment: " + this.newComment);
     this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment});
+    console.log(this.usersService.role);
     this.comments.push({
       author: this.usersService.role,
       created: new Date(),
