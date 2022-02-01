@@ -33,7 +33,7 @@
     <mat-card-actions class="incident-card-actions">
         <button mat-button (click)="toggleComments()">
             <mat-icon>insert_comment</mat-icon>
-            {{contractIncident.comments.length}} Comments
+            {{numberComments}} Comments
         </button>
         <mat-spinner [diameter]="15" *ngIf="commentsLoading"></mat-spinner>
         <button mat-button>SHARE</button>

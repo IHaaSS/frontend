@@ -33,6 +33,7 @@ export class IncidentCardComponent implements OnInit {
   ngOnInit(): void {
     console.log(this.contractIncident);
     this.date = new Date(this.contractIncident.created * 1000);
+    this.numberComments = this.contractIncident.comments.length;
     this.loadIncidentData();
   }
 
@@ -91,6 +92,7 @@ export class IncidentCardComponent implements OnInit {
       votes: 0,
       content: this.newComment
     });
+    this.numberComments++;
     this.newComment = '';
   }
 }
