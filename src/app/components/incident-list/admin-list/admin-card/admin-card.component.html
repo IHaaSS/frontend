@@ -1,0 +1,31 @@
+<mat-card class="incident-card">
+    <mat-spinner [diameter]="25" *ngIf="!incident" class="topcorner"></mat-spinner>
+    <mat-icon *ngIf="impact" class="topcorner" [ngClass]="{
+        'very-low': impact === 'Very Low', 
+        'low': impact === 'Low', 
+        'moderate': impact === 'Moderate', 
+        'high': impact === 'High', 
+        'very-high': impact === 'Very High'
+    }">local_fire_department</mat-icon>
+    <mat-card-header>
+        <div mat-card-avatar class="vote">     
+        </div>
+        <mat-card-title class="incident-card-title">
+            {{incident.title}}
+        </mat-card-title>
+        <mat-card-subtitle>
+            User: {{incident.email}} <br> Date: Datum
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="incident-card-content">
+        <p>
+            <app-compact-incident *ngIf="incident" [incident]="incident"></app-compact-incident>
+        </p>
+
+    </mat-card-content>
+    <mat-card-actions class="incident-card-actions">
+        <button mat-button (click)="approveIncident()">APPROVE</button>
+        <mat-spinner [diameter]="15" *ngIf="approveLoading"></mat-spinner>
+        <button mat-button>DECLINE</button>
+    </mat-card-actions>
+</mat-card>

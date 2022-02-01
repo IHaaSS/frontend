@@ -1,6 +1,8 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion/expansion-panel';
+import { Incident } from 'app/model/incident';
 import { ContractIncident } from 'app/services/contract.service';
+import { IncidentService } from 'app/services/incident.service';
 
 @Component({
   selector: 'app-admin-list',
@@ -8,11 +10,11 @@ import { ContractIncident } from 'app/services/contract.service';
   styleUrls: ['./admin-list.component.css']
 })
 export class AdminListComponent implements OnInit {
-  public contractIncidents: ContractIncident[];
 
-  constructor() { }
+  constructor(public incidentService: IncidentService) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
+    await this.incidentService.getUserIncidents();
+    console.log(this.incidentService.userIncidents);
   }
-
 }

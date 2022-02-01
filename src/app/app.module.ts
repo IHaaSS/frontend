@@ -15,6 +15,7 @@ import { WizardModule } from './components/wizard/wizard.module';
 import { LayoutModule } from './components/layout/layout.module';
 import { AppComponent } from './components/app.component';
 import { AdminListComponent } from './components/incident-list/admin-list/admin-list.component';
+import { AdminCardComponent } from './components/incident-list/admin-list/admin-card/admin-card.component';
 
 @NgModule({
   imports: [
@@ -33,7 +34,6 @@ import { AdminListComponent } from './components/incident-list/admin-list/admin-
   declarations: [
     AppComponent,
     AdminLayoutComponent
-
   ],
   providers: [],
   bootstrap: [AppComponent]

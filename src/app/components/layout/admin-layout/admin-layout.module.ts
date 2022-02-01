@@ -20,6 +20,7 @@ import { IncidentCommentComponent } from 'app/components/incident-list/incident-
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CompactIncidentComponent } from 'app/components/incident-list/compact-incident/compact-incident.component';
 import { AdminListComponent } from 'app/components/incident-list/admin-list/admin-list.component';
+import { AdminCardComponent } from 'app/components/incident-list/admin-list/admin-card/admin-card.component';
 
 @NgModule({
   imports: [
@@ -45,7 +46,8 @@ import { AdminListComponent } from 'app/components/incident-list/admin-list/admi
     IncidentListComponent,
     IncidentCardComponent,
     IncidentCommentComponent,
-    CompactIncidentComponent
+    CompactIncidentComponent,
+    AdminCardComponent
   ]
 })
 

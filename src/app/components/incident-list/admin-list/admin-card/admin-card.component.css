@@ -1,0 +1,56 @@
+.incident-card {
+    max-width: 900px;
+    margin-bottom: 10px;
+}
+
+.incident-card-title {
+    color: black;
+}
+
+.incident-card-content {
+    padding: 10px;
+}
+
+.vote {
+    text-align: center;
+    line-height: 1;
+}
+
+.vote-arrow {
+    -webkit-user-select: none;
+    -moz-user-select: -moz-none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.incident-card-actions {
+    margin-bottom: 0;
+    display: flex;
+}
+
+.topcorner {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+}
+
+.very-low {
+    color: yellow
+}
+
+.low {
+    color: rgb(255, 217, 0)
+}
+
+.moderate {
+    color: rgb(255, 187, 0)
+}
+
+.high {
+    color: rgb(255, 115, 0)
+}
+
+.very-high {
+    color: rgb(255, 8, 0)
+}

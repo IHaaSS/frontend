@@ -10,6 +10,7 @@ export class Incident {
   description: string;
   technicalData: string;
   title: string;
+  myId: number;
 
   idCount = 0;
 
