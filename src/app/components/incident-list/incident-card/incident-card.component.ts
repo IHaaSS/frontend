@@ -5,6 +5,7 @@ import { IncidentComment } from 'app/model/incident-comment';
 import { ContractComment, ContractIncident, ContractService } from 'app/services/contract.service';
 import { Users } from 'app/model/users';
 import { delay } from 'rxjs/operators';
+import { UsersService } from 'app/services/users.service';
 
 @Component({
   selector: 'app-incident-card',
@@ -27,7 +28,7 @@ export class IncidentCardComponent implements OnInit {
 
   newComment: string = "";
 
-  constructor(private contractService: ContractService) { }
+  constructor(private contractService: ContractService, private usersService: UsersService) { }
 
   ngOnInit(): void {
     console.log(this.contractIncident);
@@ -81,7 +82,14 @@ export class IncidentCardComponent implements OnInit {
   }
 
   public async postComment(){
-    console.log("Posting comment: " + this.newComment)
-    this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment})
+    console.log("Posting comment: " + this.newComment);
+    this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment});
+    this.comments.push({
+      author: this.usersService.role,
+      created: new Date(),
+      votes: 0,
+      content: this.newComment
+    });
+    this.newComment = '';
   }
 }
