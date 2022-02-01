@@ -44,9 +44,11 @@ export class IncidentService {
   }
 
   async deleteUserIncident(id:any): Promise<{}> {
-    return this.http.delete(this.userIncidentsUrl +'/' + id).pipe(
-      catchError(this.handleError('deleteIncident'))
+    await this.http.delete(this.userIncidentsUrl +'/' + id).pipe(
+      catchError(this.handleError('deleteUserIncident'))
     ).toPromise();
+    this.removeUserIncident(id);
+    return;
   }
 
   async approveIncident(incident: Incident): Promise<Incident> {

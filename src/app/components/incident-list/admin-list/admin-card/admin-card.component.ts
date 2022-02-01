@@ -11,6 +11,7 @@ export class AdminCardComponent implements OnInit {
   @Input() incident: Incident;
   impact: string;
   approveLoading: boolean = false;
+  declineLoading: boolean = false;
 
   constructor(private incidentService: IncidentService) { }
 
@@ -24,4 +25,9 @@ export class AdminCardComponent implements OnInit {
     this.approveLoading = false;
   }
 
+  async declineIncident(){
+    this.declineLoading = true;
+    await this.incidentService.deleteUserIncident(this.incident.myId);
+    this.declineLoading = false;
+  }
 }
