@@ -10,11 +10,13 @@ import { IncidentService } from 'app/services/incident.service';
   styleUrls: ['./admin-list.component.css']
 })
 export class AdminListComponent implements OnInit {
+  userIncidentsLoaded: boolean = false;
 
   constructor(public incidentService: IncidentService) { }
 
   async ngOnInit(): Promise<void> {
     await this.incidentService.getUserIncidents();
+    this.userIncidentsLoaded = true;
     console.log(this.incidentService.userIncidents);
   }
 }

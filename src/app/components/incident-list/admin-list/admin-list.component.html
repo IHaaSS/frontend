@@ -9,6 +9,7 @@
                     </div>
                     <div class="card-body" style="max-height:100%; overflow-y: auto">
                         <mat-spinner [diameter]="30" *ngIf="!incidentService.userIncidents"></mat-spinner>
+                        <div *ngIf="incidentService.userIncidents.length == 0 && userIncidentsLoaded">There are no reported incidents to check</div>
                         <app-admin-card *ngFor="let userIncident of incidentService.userIncidents" [incident]="userIncident"></app-admin-card>
                     </div>
                 </div>

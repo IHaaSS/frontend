@@ -45,7 +45,8 @@ export class IncidentCardComponent implements OnInit {
 
   async loadComments() {
     console.log('loading Comments')
-    if (this.comments.length === this.contractIncident.comments.length) {
+    console.log(this.comments);
+    if (this.comments.length === this.contractIncident.comments.length || this.comments.length != 0) {
       return;
     } 
 

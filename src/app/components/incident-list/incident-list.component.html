@@ -9,6 +9,7 @@
                     </div>
                     <div class="card-body" style="max-height:100%; overflow-y: auto">
                         <app-incident-card *ngFor="let contractIncident of contractIncidents" [contractIncident]="contractIncident"></app-incident-card>
+                        <div *ngIf="contractIncidents && contractIncidents.length == 0">There are no approved incidents yet</div>
                         <mat-spinner [diameter]="30" *ngIf="!contractIncidents"></mat-spinner>
                     </div>
                 </div>
