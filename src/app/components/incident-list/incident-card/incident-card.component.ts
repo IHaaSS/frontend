@@ -53,16 +53,18 @@ export class IncidentCardComponent implements OnInit {
     this.comments = [];
     this.commentsLoading = true;
     const promises: Promise<any>[] = [];
-    for (const comment of this.contractIncident.comments) {
+    this.contractIncident.comments.forEach((comment, index) => {
       promises.push((async () => {
         const result = await this.contractService.getIpfsContent(comment.content);
-        this.comments.push({
+        this.comments[index] = {
           author: this.contractIncident.author,
           content: result,
           created: new Date(this.contractIncident.created * 1000),
           votes: this.calculateVotes(this.contractIncident.votes)
-        });
+        };
       })());
+    })
+    for (const comment of this.contractIncident.comments) {
     }
     await Promise.all(promises);
     console.log(this.comments);
@@ -79,6 +81,8 @@ export class IncidentCardComponent implements OnInit {
       this.commentsPanel.close();
     } else {
       await this.loadComments();
+      console.log('opening')
+      console.log(this.comments)
       this.commentsPanel.open();
     }
   }
