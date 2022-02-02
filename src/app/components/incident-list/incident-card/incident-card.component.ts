@@ -58,9 +58,9 @@ export class IncidentCardComponent implements OnInit {
         const result = await this.contractService.getIpfsContent(comment.content);
         this.comments.push({
           author: this.contractIncident.author,
-          content: result.content,
+          content: result,
           created: new Date(this.contractIncident.created * 1000),
-          votes: this.contractIncident.votedUp.length - this.contractIncident.votedDown.length
+          votes: this.calculateVotes(this.contractIncident.votes)
         });
       })());
     }
@@ -96,5 +96,13 @@ export class IncidentCardComponent implements OnInit {
     this.numberComments++;
     this.newComment = '';
     this.postingLoading = false;
+  }
+
+  private calculateVotes(votes: []): number{
+    let voteNumber = 0;
+    votes.forEach(vote => {
+      voteNumber += vote[1];
+    });
+    return voteNumber;
   }
 }

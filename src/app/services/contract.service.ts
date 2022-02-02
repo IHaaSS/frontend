@@ -54,7 +54,7 @@ export class ContractService {
 
     const body = {
       parent: parentRef,
-      comment: "hallo",
+      comment: content.text,
       incident: incidentRef
     };
     console.log(body)
@@ -76,8 +76,7 @@ export class ContractIncident {
   created: number;
   author: string;
   comments: ContractComment[];
-  votedUp: [];
-  votedDown: [];
+  votes: [];
   attachments: [];
 }
 

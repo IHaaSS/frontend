@@ -15,6 +15,7 @@ export class IncidentCommentComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.comment);
   }
 
   public vote(vote: number): void {
