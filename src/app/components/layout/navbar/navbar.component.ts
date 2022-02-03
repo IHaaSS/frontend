@@ -2,7 +2,7 @@ import { Component, OnInit, ElementRef } from '@angular/core';
 import { ROUTES } from '../sidebar/sidebar.component';
 import {Location, LocationStrategy, PathLocationStrategy} from '@angular/common';
 import { Router } from '@angular/router';
-import { Roles } from 'app/model/users';
+import { Roles, Users } from 'app/model/users';
 import { UsersService } from 'app/services/users.service';
 
 @Component({
@@ -12,12 +12,13 @@ import { UsersService } from 'app/services/users.service';
 })
 export class NavbarComponent implements OnInit {
     location: Location;
-      mobile_menu_visible: any = 0;
+    mobile_menu_visible: any = 0;
     private listTitles: any[];
     private toggleButton: any;
     private sidebarVisible: boolean;
     private $layer: any;
     Roles = Roles;
+    users = Users.usernames;
 
     constructor(location: Location,  private element: ElementRef, private router: Router, private usersService: UsersService) {
         this.location = location;
@@ -131,5 +132,9 @@ export class NavbarComponent implements OnInit {
 
     changeRole(role: Roles){
         this.usersService.role = role;
+    }
+
+    changeUser(user: string){
+        this.usersService.user = user;
     }
 }
