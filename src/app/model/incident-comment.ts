@@ -3,5 +3,6 @@ export class IncidentComment {
     created: Date;
     content: string;
     votes: number;
+    ref: string;
     attachments?: string[];
 }

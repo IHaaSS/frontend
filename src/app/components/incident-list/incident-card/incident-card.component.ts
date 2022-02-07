@@ -34,6 +34,7 @@ export class IncidentCardComponent implements OnInit {
     console.log(this.contractIncident);
     this.date = new Date(this.contractIncident.created * 1000);
     this.numberComments = this.contractIncident.comments.length;
+    this.votes = this.calculateVotes(this.contractIncident.votes);
     this.loadIncidentData();
   }
 
@@ -60,7 +61,8 @@ export class IncidentCardComponent implements OnInit {
           author: this.contractIncident.author,
           content: result,
           created: new Date(this.contractIncident.created * 1000),
-          votes: this.calculateVotes(this.contractIncident.votes)
+          votes: this.calculateVotes(comment.votes),
+          ref: comment.ref
         };
       })());
     })
@@ -71,7 +73,8 @@ export class IncidentCardComponent implements OnInit {
     this.commentsLoading = false;
   }
 
-  public vote(vote: number): void {
+  public async vote(vote: number) {
+    await this.contractService.postVote(this.contractIncident.ref, vote);
     this.votes += vote;
   }
 
@@ -90,12 +93,14 @@ export class IncidentCardComponent implements OnInit {
   public async postComment(){
     console.log("Posting comment: " + this.newComment);
     this.postingLoading = true;
-    await this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment});
+    let ref = await this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment});
+    console.log(ref);
     this.comments.push({
       author: this.usersService.role,
       created: new Date(),
       votes: 0,
-      content: this.newComment
+      content: this.newComment,
+      ref: ref
     });
     this.numberComments++;
     this.newComment = '';

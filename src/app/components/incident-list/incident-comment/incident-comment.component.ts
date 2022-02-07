@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IncidentComment } from 'app/model/incident-comment';
 import { Users } from 'app/model/users';
+import { ContractService } from 'app/services/contract.service';
 
 @Component({
   selector: 'app-incident-comment',
@@ -12,13 +13,14 @@ export class IncidentCommentComponent implements OnInit {
 
   usernames = Users.usernames;
 
-  constructor() { }
+  constructor(private contractService: ContractService) { }
 
   ngOnInit(): void {
     console.log(this.comment);
   }
 
-  public vote(vote: number): void {
+  public async vote(vote: number) {
+    await this.contractService.postVote(this.comment.ref, vote, true);
     this.comment.votes += vote;
   }
 }

@@ -46,7 +46,7 @@ export class ContractService {
 
   }
 
-  async postComment(parentRef: string, incidentRef: string, content: CommentContent) {
+  async postComment(parentRef: string, incidentRef: string, content: CommentContent): Promise<string> {
     const url = environment.baseUrl + '/contract/incidents/comments';
     console.log('POST ' + url);
     const headers = new HttpHeaders()
@@ -59,9 +59,39 @@ export class ContractService {
     };
     console.log(body)
 
-    await this.http.post(url, JSON.stringify(body), {headers: headers}).toPromise().then(
+    let ref: string;
+    await this.http.post(url, JSON.stringify(body), {headers: headers, responseType: 'text'}).toPromise().then(
       response => {
         console.log('POST comment successful');
+        console.log(response);
+        ref = response;
+      },
+      response => {
+        console.log('POST call in error', response);
+      }
+    );
+
+    return ref;
+  }
+
+  async postVote(incidentRef: string, vote: number, isComment: boolean = false){
+    let url: string = environment.baseUrl + '/contract/incidents/vote';
+
+    if(isComment){
+      url = environment.baseUrl + '/contract/incidents/comments/vote';
+    }
+    console.log('POST ' + url);
+    const headers = new HttpHeaders()
+      .set('Content-Type', 'application/json');
+
+    let body = {
+      ref: incidentRef,
+      vote: vote
+    }
+
+    await this.http.post(url, JSON.stringify(body), {headers: headers}).toPromise().then(
+      response => {
+        console.log('POST vote successful');
       },
       response => {
         console.log('POST call in error', response);
@@ -86,8 +116,7 @@ export class ContractComment {
   created: number;
   author: string;
   content: string;
-  votedUp: [];
-  votedDown: [];
+  votes: [];
   attachmentList: [];
 }
 
