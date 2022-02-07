@@ -1,25 +1,165 @@
 {
-  "name": "Entity",
-  "elements": [
-    {
-      "name": "Operations",
-      "id": "1"
-    },
-    {
-      "name": "Assets",
-      "id": "2"
-    },
-    {
-      "name": "Individuals",
-      "id": "3"
-    },
-    {
-      "name": "Other Organizations",
-      "id": "4"
-    },
-    {
-      "name": "Nations",
-      "id": "5"
-    }
-  ]
+    "name": "Entity",
+    "elements": [{
+            "name": "Operations",
+            "id": "1",
+            "elements": [{
+                    "name": "Consensus Mechanism",
+                    "id": "1-1"
+                },
+                {
+                    "name": "Incentive Mechanism",
+                    "id": "1-2",
+                    "elements": [{
+                        "name": "Block Mining",
+                        "id": "1-2-1"
+                    }]
+                }
+            ]
+        },
+        {
+            "name": "Assets",
+            "id": "2",
+            "elements": [{
+                    "name": "Information Assets",
+                    "id": "2-1",
+                    "elements": [{
+                            "name": "Blocks",
+                            "id": "2-1-1"
+                        },
+                        {
+                            "name": "Transactions",
+                            "id": "2-1-2"
+                        },
+                        {
+                            "name": "Indices",
+                            "id": "2-1-3"
+                        }
+                    ]
+                },
+                {
+                    "name": "Databases",
+                    "id": "2-2",
+                    "elements": [{
+                            "name": "State Database",
+                            "id": "2-2-1"
+                        },
+                        {
+                            "name": "Blockchain Database",
+                            "id": "2-2-3"
+                        }
+                    ]
+                },
+                {
+                    "name": "Software / Application Assets",
+                    "id": "2-3",
+                    "elements": [{
+                            "name": "Smart Contracts",
+                            "id": "2-3-1"
+                        },
+                        {
+                            "name": "dApps",
+                            "id": "2-3-2"
+                        },
+                        {
+                            "name": "Cryptocurrencies",
+                            "id": "2-3-3"
+                        },
+                        {
+                            "name": "Wallets",
+                            "id": "2-3-4"
+                        },
+                        {
+                            "name": "Web Application",
+                            "id": "2-3-5"
+                        },
+                        {
+                            "name": "Tokenized Assets",
+                            "id": "2-3-6"
+                        },
+                        {
+                            "name": "Trading Markets",
+                            "id": "2-3-7"
+                        }
+                    ]
+                },
+                {
+                    "name": "System Assets",
+                    "id": "2-4",
+                    "elements": [{
+                            "name": "Compiler",
+                            "id": "2-4-1"
+                        },
+                        {
+                            "name": "Virtual Machine",
+                            "id": "2-4-2"
+                        },
+                        {
+                            "name": "Docker container",
+                            "id": "2-4-3"
+                        }
+                    ]
+                },
+                {
+                    "name": "Hardware Assets",
+                    "id": "2-5",
+                    "elements": [{
+                            "name": "Raspberry Pi",
+                            "id": "2-5-1"
+                        },
+                        {
+                            "name": "Personal Computer",
+                            "id": "2-5-2"
+                        },
+                        {
+                            "name": "Server",
+                            "id": "2-5-3"
+                        }
+                    ]
+                }
+            ]
+        }, {
+            "name": "Individuals",
+            "id": "3",
+            "elements": [{
+                    "name": "Certificate Authority Admin",
+                    "id": "3-1"
+                },
+                {
+                    "name": "Orderer Admin",
+                    "id": "3-2"
+                },
+                {
+                    "name": "Peer Admin",
+                    "id": "3-3"
+                },
+                {
+                    "name": "Transactor",
+                    "id": "3-4"
+                },
+                {
+                    "name": "External User",
+                    "id": "3-5"
+                }
+            ]
+        }, {
+            "name": "Other Organizations",
+            "id": "4"
+        }, {
+            "name": "External Systems",
+            "id": "5",
+            "elements": [{
+                    "name": "Oracles",
+                    "id": "5-1"
+                },
+                {
+                    "name": "Off-chain storage",
+                    "id": "5-2"
+                }
+            ]
+        }, {
+            "name": "Nations",
+            "id": "6"
+        }
+    ]
 }
