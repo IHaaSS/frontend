@@ -55,6 +55,12 @@
     right: 15px;
 }
 
+.status-icon {
+    position: absolute;
+    top: 45px;
+    right: 15px;
+}
+
 .very-low {
     color: yellow
 }

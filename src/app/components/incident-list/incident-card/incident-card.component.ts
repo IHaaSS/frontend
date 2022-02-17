@@ -1,6 +1,6 @@
 import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { MatExpansionPanel } from '@angular/material/expansion';
-import { Incident } from 'app/model/incident';
+import { Incident, Status } from 'app/model/incident';
 import { IncidentComment } from 'app/model/incident-comment';
 import { ContractComment, ContractIncident, ContractService } from 'app/services/contract.service';
 import { Users } from 'app/model/users';
@@ -25,6 +25,8 @@ export class IncidentCardComponent implements OnInit {
   impact: string;
   usernames = Users.usernames;
   date: Date;
+  
+  stati = Status;
 
   newComment: string = "";
 
@@ -40,6 +42,7 @@ export class IncidentCardComponent implements OnInit {
 
   async loadIncidentData() {
     this.incident = JSON.parse(await this.contractService.getIpfsContent(this.contractIncident.content));
+    this.incident.status = Status.DISCUSSION;
     console.log(this.incident);
     this.impact = (this.incident.impacts[0] as any).impact[0];
   }

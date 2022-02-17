@@ -12,6 +12,8 @@ export class Incident {
   title: string;
   myId: number;
 
+  status: Status;
+
   idCount = 0;
 
   constructor() {
@@ -123,5 +125,13 @@ export class IncidentElement {
 
 export class IncidentEvent extends IncidentElement {
   triggeredBy?: number;
+}
+
+export enum Status { 
+  DISCUSSION, 
+  RESPONSE, 
+  INVALID, 
+  DUPLICATE, 
+  COMPLETED 
 }
 
