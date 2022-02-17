@@ -9,13 +9,15 @@
     }">local_fire_department</mat-icon>
     <mat-card-header>
         <div mat-card-avatar class="vote">
-            <div class="vote-arrow" (click)="vote(1)">
-                <mat-icon>arrow_upward</mat-icon>
-            </div>
-            <div><b>{{votes}}</b></div>
-            <div class="vote-arrow" (click)="vote(-1)">
-                <mat-icon>arrow_downward</mat-icon>
-            </div>
+            <span class="vote-arrow" (click)="vote(1)">
+                <mat-icon class="vote-icon">change_history</mat-icon>
+                <span class="votenumber">{{votes.upvotes}}</span>
+            </span>
+            <!-- <span><b>{{votes}}</b></span> -->
+            <span class="vote-arrow"(click)="vote(-1)">
+                <mat-icon class="vote-icon" style="transform: rotate(180deg)">change_history</mat-icon>
+                <span class="votenumber" style="vertical-align: sub;">{{votes.downvotes}}</span>
+            </span>
         </div>
         <mat-card-title class="incident-card-title">
             {{!incident ? contractIncident.ref : incident.title}}

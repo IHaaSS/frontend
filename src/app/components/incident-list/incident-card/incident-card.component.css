@@ -11,10 +11,10 @@
     padding: 10px;
 }
 
-.vote {
+/* .vote {
     text-align: center;
     line-height: 1;
-}
+} */
 
 .vote-arrow {
     -webkit-user-select: none;
@@ -22,11 +22,31 @@
     -ms-user-select: none;
     user-select: none;
     cursor: pointer;
+    vertical-align: middle;
+    line-height: 5px;
+}
+
+.vote-icon {
+    vertical-align: middle;
+}
+
+.votenumber {
+    vertical-align: middle;
+    font-weight: bold;
+    padding-left: 4px;
 }
 
 .incident-card-actions {
     margin-bottom: 0;
     display: flex;
+}
+
+.mat-card-header {
+    padding-left: 10px;
+}
+
+.mat-card-avatar {
+    width: 50px;
 }
 
 .topcorner {

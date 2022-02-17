@@ -2,11 +2,13 @@
     <div class="row comment-header">
         <div class="vote col-auto">
             <div class="vote-arrow" (click)="vote(1)">
-                <mat-icon>arrow_upward</mat-icon>
+                <mat-icon class="vote-icon">change_history</mat-icon>
+                <span class="votenumber" style="vertical-align: super;">{{comment.votes.upvotes}}</span>
             </div>
-            <div>{{comment.votes}}</div>
-            <div class="vote-arrow" (click)="vote(-1)">
-                <mat-icon>arrow_downward</mat-icon>
+            <!-- <span><b>{{votes}}</b></span> -->
+            <div class="vote-arrow"(click)="vote(-1)">
+                <mat-icon class="vote-icon" style="transform: rotate(180deg)">change_history</mat-icon>
+                <span class="votenumber">{{comment.votes.downvotes}}</span>
             </div>
         </div>
         <div class="col d-flex align-items-center">

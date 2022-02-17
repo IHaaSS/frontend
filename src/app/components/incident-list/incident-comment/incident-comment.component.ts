@@ -21,6 +21,11 @@ export class IncidentCommentComponent implements OnInit {
 
   public async vote(vote: number) {
     await this.contractService.postVote(this.comment.ref, vote, true);
-    this.comment.votes += vote;
+    if(vote[1] > 0){
+      this.comment.votes.upvotes++;
+    }
+    if(vote[1] < 0){
+      this.comment.votes.downvotes++;
+    }
   }
 }

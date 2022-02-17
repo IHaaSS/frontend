@@ -2,7 +2,7 @@ export class IncidentComment {
     author: string;
     created: Date;
     content: string;
-    votes: number;
+    votes: {upvotes: number, downvotes: number};;
     ref: string;
     attachments?: string[];
 }

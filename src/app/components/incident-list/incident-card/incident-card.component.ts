@@ -15,7 +15,7 @@ export class IncidentCardComponent implements OnInit {
   @Input() contractIncident: ContractIncident;
   @ViewChild('commentsPanel') commentsPanel: MatExpansionPanel;
 
-  votes = 0;
+  votes = {upvotes: 0, downvotes: 0};
   numberComments = 0;
 
   incident: Incident;
@@ -75,7 +75,12 @@ export class IncidentCardComponent implements OnInit {
 
   public async vote(vote: number) {
     await this.contractService.postVote(this.contractIncident.ref, vote);
-    this.votes += vote;
+    if(vote > 0){
+      this.votes.upvotes++;
+    }
+    if(vote < 0){
+      this.votes.downvotes++;
+    }
   }
 
   public async toggleComments() {
@@ -98,7 +103,7 @@ export class IncidentCardComponent implements OnInit {
     this.comments.push({
       author: this.usersService.role,
       created: new Date(),
-      votes: 0,
+      votes: {upvotes: 0, downvotes: 0},
       content: this.newComment,
       ref: ref
     });
@@ -107,11 +112,17 @@ export class IncidentCardComponent implements OnInit {
     this.postingLoading = false;
   }
 
-  private calculateVotes(votes: []): number{
-    let voteNumber = 0;
+  private calculateVotes(votes: []): {upvotes: number, downvotes: number}{
+    let upvotes = 0;
+    let downvotes = 0;
     votes.forEach(vote => {
-      voteNumber += vote[1];
+      if(vote[1] > 0){
+        upvotes++;
+      }
+      if(vote[1] < 0){
+        downvotes++;
+      }
     });
-    return voteNumber;
+    return {upvotes: upvotes, downvotes: downvotes};
   }
 }
