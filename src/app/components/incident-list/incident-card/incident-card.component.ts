@@ -27,6 +27,7 @@ export class IncidentCardComponent implements OnInit {
   date: Date;
   
   stati = Status;
+  selectedStatus: Status = Status.DISCUSSION;
 
   newComment: string = "";
 
@@ -65,7 +66,8 @@ export class IncidentCardComponent implements OnInit {
           content: result,
           created: new Date(this.contractIncident.created * 1000),
           votes: this.calculateVotes(comment.votes),
-          ref: comment.ref
+          ref: comment.ref,
+          status: comment.status_update
         };
       })());
     })
@@ -101,14 +103,15 @@ export class IncidentCardComponent implements OnInit {
   public async postComment(){
     console.log("Posting comment: " + this.newComment);
     this.postingLoading = true;
-    let ref = await this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment});
+    let ref = await this.contractService.postComment(this.contractIncident.ref, this.contractIncident.ref, {author: 'Petra', text: this.newComment}, this.selectedStatus);
     console.log(ref);
     this.comments.push({
       author: this.usersService.role,
       created: new Date(),
       votes: {upvotes: 0, downvotes: 0},
       content: this.newComment,
-      ref: ref
+      ref: ref,
+      status: this.selectedStatus
     });
     this.numberComments++;
     this.newComment = '';

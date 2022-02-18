@@ -20,6 +20,10 @@
     height: 15px;
 }
 
+.comment-header {
+    position:relative;
+}
+
 .votenumber {
     padding-left: 4px;
 }
@@ -35,4 +39,10 @@
 
 mat-icon {
     font-size: 20px;
+}
+
+.status-icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
 }

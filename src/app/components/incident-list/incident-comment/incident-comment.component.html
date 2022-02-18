@@ -1,4 +1,4 @@
-<div class="container" *ngIf="comment">
+<div class="container" *ngIf="comment"> 
     <div class="row comment-header">
         <div class="vote col-auto">
             <div class="vote-arrow" (click)="vote(1)">
@@ -12,6 +12,13 @@
             </div>
         </div>
         <div class="col d-flex align-items-center">
+            <div *ngIf="comment">
+                <!-- <mat-icon *ngIf="comment.status == stati.DISCUSSION" class="status-icon" matTooltip="Discussion in progress">speaker_notes</mat-icon> -->
+                <mat-icon *ngIf="comment.status == stati.COMPLETED" class="status-icon" matTooltip="Completed">check_cycle</mat-icon>
+                <mat-icon *ngIf="comment.status == stati.DUPLICATE" class="status-icon" matTooltip="Marked as duplicate">content_copy</mat-icon>
+                <mat-icon *ngIf="comment.status == stati.RESPONSE" class="status-icon" matTooltip="Response found">admin_panel_settings</mat-icon>
+                <mat-icon *ngIf="comment.status == stati.INVALID" class="status-icon" matTooltip="Invalid incident">report_gmailerrorred</mat-icon>
+            </div>
             <!-- <h5 class="my-0">Zefix scho wieder ein Hacker im Bitcoin drin :(</h5> -->
             <div class="subtitle">
                 <!-- User: {{usernames[comment.author.toLowerCase()]}}<br> Date: {{comment.created.toLocaleString()}} -->

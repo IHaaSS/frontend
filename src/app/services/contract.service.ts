@@ -1,5 +1,6 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Status } from 'app/model/incident';
 import { environment } from 'environments/environment';
 
 @Injectable({
@@ -46,21 +47,29 @@ export class ContractService {
 
   }
 
-  async postComment(parentRef: string, incidentRef: string, content: CommentContent): Promise<string> {
+  async postComment(parentRef: string, incidentRef: string, content: CommentContent, statusUpdate?: Status): Promise<string> {
     const url = environment.baseUrl + '/contract/incidents/comments';
     console.log('POST ' + url);
     const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json');
+      // .set('Content-Type', 'multipart/form-data');
 
-    const body = {
-      parent: parentRef,
-      comment: content.text,
-      incident: incidentRef
-    };
+    let body = new FormData();
+    body.append('parent', parentRef);
+    body.append('incident', incidentRef);
+    body.append('comment', content.text);
+    if(statusUpdate){
+      body.append('status_update', statusUpdate.toString());
+    }
+
+    // const body = {
+    //   parent: parentRef,
+    //   comment: content.text,
+    //   incident: incidentRef
+    // };
     console.log(body)
 
     let ref: string;
-    await this.http.post(url, JSON.stringify(body), {headers: headers, responseType: 'text'}).toPromise().then(
+    await this.http.post(url, body, {headers: headers, responseType: 'text'}).toPromise().then(
       response => {
         console.log('POST comment successful');
         console.log(response);
@@ -74,7 +83,7 @@ export class ContractService {
     return ref;
   }
 
-  async postVote(incidentRef: string, vote: number, isComment: boolean = false){
+  async postVote(incidentRef: string, vote: number, isComment: boolean = false, commentRef?: string){
     let url: string = environment.baseUrl + '/contract/incidents/vote';
 
     if(isComment){
@@ -85,8 +94,9 @@ export class ContractService {
       .set('Content-Type', 'application/json');
 
     let body = {
-      ref: incidentRef,
-      vote: vote
+      vote: vote,
+      incident: incidentRef,
+      ref: commentRef ? commentRef : incidentRef
     }
 
     await this.http.post(url, JSON.stringify(body), {headers: headers}).toPromise().then(
@@ -118,6 +128,7 @@ export class ContractComment {
   content: string;
   votes: [];
   attachmentList: [];
+  status_update: number;
 }
 
 export class CommentContent {

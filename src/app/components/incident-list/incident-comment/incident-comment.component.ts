@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Status } from 'app/model/incident';
 import { IncidentComment } from 'app/model/incident-comment';
 import { Users } from 'app/model/users';
 import { ContractService } from 'app/services/contract.service';
@@ -12,6 +13,8 @@ export class IncidentCommentComponent implements OnInit {
   @Input() comment: IncidentComment;
 
   usernames = Users.usernames;
+
+  stati = Status;
 
   constructor(private contractService: ContractService) { }
 

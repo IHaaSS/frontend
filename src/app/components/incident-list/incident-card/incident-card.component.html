@@ -69,6 +69,23 @@
                 <mat-icon>
                     file_upload</mat-icon> Append file
             </button>
+            <mat-form-field class="type-select-form">
+                <mat-label>Comment type</mat-label>
+                <mat-select [(value)]="selectedStatus">
+                  <mat-option [value]="stati.DISCUSSION">
+                    Discussion
+                  </mat-option>
+                  <mat-option [value]="stati.DUPLICATE">
+                    Duplicate proposal
+                  </mat-option>
+                  <mat-option [value]="stati.INVALID">
+                    Invalid proposal
+                  </mat-option>
+                  <mat-option [value]="stati.RESPONSE">
+                    Response proposal
+                  </mat-option>
+                </mat-select>
+              </mat-form-field>
         </mat-card-actions>
     </mat-expansion-panel>
 </mat-card>
