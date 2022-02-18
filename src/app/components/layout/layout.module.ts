@@ -14,6 +14,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { FormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { MatButtonModule } from '@angular/material/button';
     MatTooltipModule,
     MatListModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    ClipboardModule
   ],
   declarations: [
     FooterComponent,

@@ -45,7 +45,10 @@
             {{numberComments}} Comments
         </button>
         <mat-spinner [diameter]="15" *ngIf="commentsLoading"></mat-spinner>
-        <button mat-button>SHARE</button>
+        <button mat-button (click)="downloadIncident()">
+            <mat-icon>download</mat-icon>
+            COPY TO CLIPBOARD
+        </button>
     </mat-card-actions>
     <mat-expansion-panel hideToggle #commentsPanel>
         <mat-list>

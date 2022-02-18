@@ -21,6 +21,8 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { CompactIncidentComponent } from 'app/components/incident-list/compact-incident/compact-incident.component';
 import { AdminListComponent } from 'app/components/incident-list/admin-list/admin-list.component';
 import { AdminCardComponent } from 'app/components/incident-list/admin-list/admin-card/admin-card.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
+import {MatSnackBarModule} from '@angular/material/snack-bar';
 
 @NgModule({
   imports: [
@@ -39,6 +41,8 @@ import { AdminCardComponent } from 'app/components/incident-list/admin-list/admi
     MatExpansionModule,
     MatListModule,
     MatProgressSpinnerModule,
+    ClipboardModule,
+    MatSnackBarModule
   ],
   declarations: [
     DashboardComponent,

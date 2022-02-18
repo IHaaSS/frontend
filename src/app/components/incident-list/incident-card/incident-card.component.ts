@@ -5,6 +5,8 @@ import { IncidentComment } from 'app/model/incident-comment';
 import { ContractComment, ContractIncident, ContractService } from 'app/services/contract.service';
 import { Users } from 'app/model/users';
 import { UsersService } from 'app/services/users.service';
+import { Clipboard } from '@angular/cdk/clipboard';
+import {MatSnackBar} from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-incident-card',
@@ -31,7 +33,7 @@ export class IncidentCardComponent implements OnInit {
 
   newComment: string = "";
 
-  constructor(private contractService: ContractService, private usersService: UsersService) { }
+  constructor(private contractService: ContractService, private usersService: UsersService, private clipboard: Clipboard, private snackBar: MatSnackBar) { }
 
   ngOnInit(): void {
     console.log(this.contractIncident);
@@ -130,5 +132,10 @@ export class IncidentCardComponent implements OnInit {
       }
     });
     return {upvotes: upvotes, downvotes: downvotes};
+  }
+
+  downloadIncident(){
+    this.clipboard.copy(JSON.stringify(this.incident));
+    this.snackBar.open("Incident JSON copied to clipboard", null, {duration: 3000});
   }
 }
