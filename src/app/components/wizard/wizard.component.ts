@@ -5,6 +5,7 @@ import sources from 'app/model/sources.json';
 import events from 'app/model/events.json';
 import entities from 'app/model/entities.json';
 import impacts from 'app/model/impacts.json';
+import indicators from 'app/model/indicators.json';
 import { IncidentTree } from './tree-selector/tree-selector.component';
 import { MatDialog } from '@angular/material/dialog';
 import { RefinementDialogComponent } from './refinement-dialog/refinement-dialog.component';
@@ -34,6 +35,9 @@ export class WizardComponent implements OnInit {
   stixIncidentUrl = '';
   buttonNext = 'Next';
 
+  indicatorsArr = indicators.indicators;
+  selectedIndicators;
+
   selected = [];
 
   constructor(private incidentService: IncidentService, private dialog: MatDialog) {
@@ -41,6 +45,11 @@ export class WizardComponent implements OnInit {
     this.eventsTree = events;
     this.entitiesTree = entities;
     this.impactTree = impacts;
+
+    console.log(this.indicatorsArr);
+    setInterval(()=>{
+      console.log(this.selectedIndicators)
+    }, 1000)
   }
 
   async ngOnInit(): Promise<void> {

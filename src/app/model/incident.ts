@@ -111,11 +111,13 @@ export class IncidentElement {
     description: string;
     id: number;
     elementId: string;
+    indicators: string[];
 
     constructor() {
       this.elements = [];
       this.description = '';
       this.elementId = '';
+      this.indicators = [];
     }
 
     get name(): string {
