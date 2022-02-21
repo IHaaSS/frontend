@@ -13,7 +13,6 @@ import { MatCardModule } from '@angular/material/card';
 import {MatIconModule} from '@angular/material/icon';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatListModule } from '@angular/material/list';
-import { DashboardComponent } from 'app/components/dashboard/dashboard.component';
 import { IncidentListComponent } from 'app/components/incident-list/incident-list.component';
 import { IncidentCardComponent } from 'app/components/incident-list/incident-card/incident-card.component';
 import { IncidentCommentComponent } from 'app/components/incident-list/incident-comment/incident-comment.component';
@@ -45,7 +44,6 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     MatSnackBarModule
   ],
   declarations: [
-    DashboardComponent,
     AdminListComponent,
     IncidentListComponent,
     IncidentCardComponent,

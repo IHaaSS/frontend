@@ -45,11 +45,6 @@ export class WizardComponent implements OnInit {
     this.eventsTree = events;
     this.entitiesTree = entities;
     this.impactTree = impacts;
-
-    console.log(this.indicatorsArr);
-    setInterval(()=>{
-      console.log(this.selectedIndicators)
-    }, 1000)
   }
 
   async ngOnInit(): Promise<void> {
