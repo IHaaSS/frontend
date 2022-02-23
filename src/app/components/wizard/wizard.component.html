@@ -73,7 +73,7 @@
                                             </app-tree-selector>
                                             <mat-form-field>
                                                 <mat-select placeholder="Indicators for the event:" multiple [(ngModel)]="incident.events[i].indicators">
-                                                    <mat-option *ngFor="let indicator of indicatorsArr" [value]="indicator">{{indicator}}</mat-option>
+                                                    <mat-option *ngFor="let indicator of indicatorsArr" [value]="indicator.title" [matTooltip]="indicator.tooltip">{{indicator.title}}</mat-option>
                                                 </mat-select>
                                             </mat-form-field>
                                             <mat-form-field class="detailTextarea">
