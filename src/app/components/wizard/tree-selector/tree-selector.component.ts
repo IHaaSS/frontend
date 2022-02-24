@@ -30,10 +30,16 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
   ngOnInit() {
     this.incident = this.incidentService.getIncident();
     this.choices[0] = this.incidentTree.elements;
-
+    if(this.choices[0]){
+      this.choices[0].forEach(element => {
+        this.addTooltip(element);
+      });
+    }
   }
 
   selectionChange(value: any, i: number) {
+    console.log(value);
+    console.log(this.choices);
     for (let j = this.selections.elements.length - 1; j > i; j--) {
       this.choices.pop();
       this.selections.elements.pop();
@@ -51,6 +57,11 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
     }
     if (value.elements) {
       this.choices[i + 1] = value.elements;
+      if(this.choices[i + 1]){
+        this.choices[i + 1].forEach(element => {
+          this.addTooltip(element);
+        });
+      }
     }
 
     this.valueChange.emit(this.selections);
@@ -79,7 +90,20 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
       });
     }
   }
+
+  addTooltip(element: any){
+    console.log(element);
+    if(!element.tooltip){
+      element.tooltip = '';
+      if(element.elements){
+        element.elements.forEach(childElement => {
+          element.tooltip += childElement.name + '\r\n';
+        });
+      }
+    }
+  }
 }
+
 
 export class IncidentTree {
   name: string;
