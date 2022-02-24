@@ -35,6 +35,7 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
         this.addTooltip(element);
       });
     }
+    this.sortSubElements(this.choices[0]);
   }
 
   selectionChange(value: any, i: number) {
@@ -62,6 +63,7 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
           this.addTooltip(element);
         });
       }
+      this.sortSubElements(this.choices[i + 1]);
     }
 
     this.valueChange.emit(this.selections);
@@ -100,6 +102,15 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
           element.tooltip += childElement.name + '\r\n';
         });
       }
+    }
+  }
+
+  sortSubElements(element: any[]){
+    console.log(element)
+    if(element){
+      element.sort((a, b) =>{
+        return a.name > b.name ? 1: -1;
+      })
     }
   }
 }
