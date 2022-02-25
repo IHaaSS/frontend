@@ -4,16 +4,16 @@ import { Incident, IncidentElement } from './incident';
 export class BackendIncident {
     static parseIncidentElements(incident: Incident) {
         incident.sources.forEach((source, i) => {
-            incident.sources[i] = new IncidentElementBackend(source, ElementType.source);
+            incident.sources[i] = new IncidentElementBackend(source, ElementType.source, source.indicators);
         });
         incident.events.forEach((event, i) => {
-            incident.events[i] = new IncidentElementBackend(event, ElementType.event);
+            incident.events[i] = new IncidentElementBackend(event, ElementType.event, event.indicators);
         });
         incident.entities.forEach((entity, i) => {
-            incident.entities[i] = new IncidentElementBackend(entity, ElementType.entity);
+            incident.entities[i] = new IncidentElementBackend(entity, ElementType.entity, entity.indicators);
         });
         incident.impacts.forEach((impact, i) => {
-            incident.impacts[i] = new IncidentElementBackend(impact, ElementType.impact);
+            incident.impacts[i] = new IncidentElementBackend(impact, ElementType.impact, impact.indicators);
         });
     }
 }
@@ -27,13 +27,15 @@ export class IncidentElementBackend extends IncidentElement {
     elementId = '';
     description: string;
     id: number;
+    indicators: string[];
 
-    constructor(incidentElement: IncidentElement, type: ElementType) {
+    constructor(incidentElement: IncidentElement, type: ElementType, indicators: string[]) {
         super();
         this[type] = incidentElement.elements;
         this[type].push(incidentElement.elementId);
         this.description = incidentElement.description;
         this.id = incidentElement.id;
+        this.indicators = indicators;
     }
 }
 
