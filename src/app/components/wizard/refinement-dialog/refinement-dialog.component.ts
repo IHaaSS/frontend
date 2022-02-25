@@ -25,17 +25,22 @@ export class RefinementDialogComponent implements OnInit, OnDestroy {
     public dialogRef: MatDialogRef<RefinementDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: Incident,
     private http: HttpClient,
-    private answerService: AnswerService) { }
+    private answerService: AnswerService) {   
+      this.reset();
+    }
 
 
   async ngOnInit() {
     console.log('OnInit');
-    this.reset();
-    this.response = await this.answerService.postIncident(this.data);
-    this.questions = this.response.questions[0];
-    if(!this.questions){
-      this.done = true;
-    }
+    this.answerService.postIncident(this.data).then(response => {
+      this.response = response;
+      if(this.response){
+        this.questions = this.response.questions[0];
+      }
+      if(!this.questions){
+        this.done = true;
+      }
+    });
   }
 
   reset() {
