@@ -5,11 +5,11 @@
         {"title": "Unauthorized modification of data", "tooltip": "A user may notice that data has been changed within the application in a way that is not compliant with regular usage, for example due to a vulnerability."},
         {"title": "Disclosure of information", "tooltip": "Confidential information was observed in a non-private context, implying unauthorized disclosure."},
         {"title": "Call by contract", "tooltip": "The application smart contract is called through a dedicated attacker smart contract created by the attacker. One attack example where attackers use a smart contract is the reentrancy attack."},
-        {"title": "Flash loan", "tooltip": "While flash loans have legitimate usage for arbitrage and reducing transaction fees, they are also often used as part of attacks that try to manipulate contract logic."},
+        {"title": "Flash loan", "tooltip": "Flash loans are cryptocurrency loans from a smart contract that are paid back in the same transaction. They are also often used as part of attacks that try to manipulate contract logic."},
         {"title": "Transaction frequency spike", "tooltip": "Attackers often perform many transactions within a short period of time."},
         {"title": "Failed transactions", "tooltip": "Failed transactions targeting the same contract. Attackers may attempt the same attack with similar parameters multiple times."},
         {"title": "Account creation date", "tooltip": "Attackers usually create new accounts for attacks, so transactions made by accounts created on the same day are more likely to be used in an attack."},
-        {"title": "Gas usage", "tooltip": "Attack transactions often come with high gas usage (for maximum impact) and/or high gas prices (for fast execution)"},
-        {"title": "Tornado.Cash", "tooltip": "The coin mixing service Tornado.Cash is popular among attackers for its ability to hide coin flows if executed correctly. If used after an attack transaction it may indicate an attempt to launder coins."}
+        {"title": "Gas usage", "tooltip": "Attack transactions often come with high gas usage (for maximum impact) and/or high gas prices (for fast execution). High usually means between 90 and 100%."},
+        {"title": "Tornado.Cash", "tooltip": "The coin mixing service Tornado.Cash is popular among attackers for its ability to hide coin flows if executed correctly. Users can deposit a large amount of coins, which is pooled with coins submitted by other users. Deposits can be withdrawn in decimal chunks (0.1, 1, 10 ETH) using a secret. If used after an attack transaction it may indicate an attempt to launder coins."}
     ]
 }
