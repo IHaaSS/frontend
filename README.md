@@ -2,8 +2,13 @@
 
 *This repository is part of a research project on blockchain security incident reporting based on human observations. The research paper is currently under review.*
 
+
 Security incidents in blockchain-based systems are frequent nowadays, which calls for more structured efforts in incident reporting and response. To improve the current status quo of reporting incidents on blogs and social media, we propose a decentralized incident reporting and discussion system.
 This repository implements the associated frontend, which provides the user interface for reporting new incidents and discussing them. It also gives admins the possibility to accept or reject reported incidents in order to have control over the information that leaves an organization.
+
+The following screenshot shows the reporting of a security incident with BISCUIT:
+
+![Screenshot of the **BISCUIT** prototype](./images/screenshot.png "Screenshot of BISCUIT")
 
 The following image highlights the app layers and architecture:
 
