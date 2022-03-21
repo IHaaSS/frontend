@@ -17,6 +17,7 @@ import { EventConstraintPipe } from './event-constraint.pipe';
 export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAccessor {
   @Input() incidentTree: IncidentTree;
   @Input() triggeredBy: string;
+  @Input() sort: boolean;
   @Output() valueChange = new EventEmitter();
 
   incident: Incident;
@@ -107,6 +108,9 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
   }
 
   sortSubElements(element: any[]){
+    if(!this.sort){
+      return;
+    }
     console.log(element)
     if(element){
       element.sort((a, b) =>{
