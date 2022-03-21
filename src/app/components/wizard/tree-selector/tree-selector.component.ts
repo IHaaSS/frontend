@@ -31,11 +31,11 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
     this.incident = this.incidentService.getIncident();
     this.choices[0] = this.incidentTree.elements;
     if(this.choices[0]){
+      this.sortSubElements(this.choices[0]);
       this.choices[0].forEach(element => {
         this.addTooltip(element);
       });
     }
-    this.sortSubElements(this.choices[0]);
   }
 
   selectionChange(value: any, i: number) {
@@ -97,6 +97,7 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
     console.log(element);
     if(!element.tooltip){
       element.tooltip = '';
+      this.sortSubElements(element.elements);
       if(element.elements){
         element.elements.forEach(childElement => {
           element.tooltip += childElement.name + '\r\n';
