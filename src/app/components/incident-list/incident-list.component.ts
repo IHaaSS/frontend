@@ -15,7 +15,12 @@ export class IncidentListComponent implements OnInit {
 
   ngOnInit() {
     this.contractService.getIncidents().then(contractIncidents => {
-      this.contractIncidents = contractIncidents;
+      if(!contractIncidents){
+        return;
+      }
+      this.contractIncidents = contractIncidents.sort((a, b) => {
+        return b.created - a.created;
+      });
     });
   }
 
