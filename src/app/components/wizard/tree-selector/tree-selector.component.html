@@ -4,7 +4,7 @@
                   (selectionChange)= "selectionChange($event.value, i)">
         <mat-option *ngFor="let child of choice | eventConstraint:triggeredBy:incident"
                     [value]="child" [matTooltip]="child.tooltip">
-          {{child.name}} ({{child.elements?child.elements.length:'0'}})
+          {{child.name}} <span *ngIf="numberOfSubElementsShown">({{child.elements?child.elements.length:'0'}})</span>
         </mat-option>
       </mat-select>
     </mat-form-field>

@@ -24,7 +24,7 @@
                                             <mat-expansion-panel-header>
                                                 Source {{i + 1}}
                                             </mat-expansion-panel-header>
-                                            <app-tree-selector [incidentTree]="sourcesTree" [sort]="true"  [(ngModel)]="incident.sources[i]">
+                                            <app-tree-selector [incidentTree]="sourcesTree" [sort]="true" [numberOfSubElementsShown]="true" [(ngModel)]="incident.sources[i]">
                                             </app-tree-selector>
                                             <mat-form-field class="detailTextarea">
                                                 <textarea matInput rows="5" placeholder="Detailed description" [(ngModel)]="source.description" class="detailTextarea"></textarea>
@@ -69,7 +69,7 @@
                                                     </ng-container>
                                                 </mat-select>
                                             </mat-form-field>
-                                            <app-tree-selector [incidentTree]="eventsTree" [sort]="true" [(ngModel)]="incident.events[i]" [triggeredBy]="event.triggeredBy">
+                                            <app-tree-selector [incidentTree]="eventsTree" [sort]="true" [numberOfSubElementsShown]="true" [(ngModel)]="incident.events[i]" [triggeredBy]="event.triggeredBy">
                                             </app-tree-selector>
                                             <mat-form-field>
                                                 <mat-select placeholder="Indicators for the event:" multiple [(ngModel)]="incident.events[i].indicators">
@@ -102,7 +102,7 @@
                                             <mat-expansion-panel-header>
                                                 Entity {{i + 1}}
                                             </mat-expansion-panel-header>
-                                            <app-tree-selector [incidentTree]="entitiesTree" [sort]="true" [(ngModel)]="incident.entities[i]">
+                                            <app-tree-selector [incidentTree]="entitiesTree" [sort]="true" [numberOfSubElementsShown]="true" [(ngModel)]="incident.entities[i]">
                                             </app-tree-selector>
                                             <mat-form-field class="detailTextarea">
                                                 <textarea matInput placeholder="Detailed description" [(ngModel)]="entity.description" class="detailTextarea"></textarea>
@@ -130,7 +130,7 @@
                                                 <mat-expansion-panel-header>
                                                     Impact {{i + 1}}
                                                 </mat-expansion-panel-header>
-                                                <app-tree-selector [incidentTree]="impactTree" [sort]="false" [(ngModel)]="incident.impacts[i]">
+                                                <app-tree-selector [incidentTree]="impactTree" [sort]="false" [numberOfSubElementsShown]="false" [(ngModel)]="incident.impacts[i]">
                                                 </app-tree-selector>
                                             </mat-expansion-panel>
                                         </mat-accordion><br /><br /><br />

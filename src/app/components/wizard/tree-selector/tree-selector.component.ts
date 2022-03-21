@@ -18,6 +18,7 @@ export class TreeSelectorComponent implements OnInit, OnChanges, ControlValueAcc
   @Input() incidentTree: IncidentTree;
   @Input() triggeredBy: string;
   @Input() sort: boolean;
+  @Input() numberOfSubElementsShown: boolean;
   @Output() valueChange = new EventEmitter();
 
   incident: Incident;
